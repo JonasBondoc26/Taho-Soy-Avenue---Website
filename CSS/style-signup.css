@@ -1,0 +1,311 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #F4FAF5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  gap: 1.5rem;
+}
+
+/* Header Styles */
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #d9f4e5;
+  padding-top: 1rem;
+  padding-left: 4rem;
+  padding-right: 2rem;
+  flex-wrap: wrap;
+}
+
+.header-logo {
+  height: 150px;
+  margin: -2rem;
+}
+
+.header-nav {
+  display: flex;
+  gap: 1.5rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.header-nav a {
+  font-family: 'Bebas Neue', sans-serif;
+  text-decoration: none;
+  color: #526952;
+  font-size: 2rem;
+  transition: color 0.2s ease;
+}
+
+.header-nav a:hover {
+  color: #133B1C;
+  text-decoration: underline;
+}
+
+.header-signin-btn {
+  padding: 0.4rem 1rem;
+  font-size: 1rem;
+  background: transparent;
+  border: 2px solid #2d4a30;
+  color: #2d4a30;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.header-signin-btn:hover {
+  background-color: #c8ebd8;
+}
+
+/* Sign Up */
+h1{
+  font-family: 'AR One Sans', sans-serif;
+  text-align: center;
+  margin-bottom: -1rem;
+}
+
+p{
+  text-align: center;
+  font-family: 'AR One Sans', sans-serif;
+}
+
+.success-message {
+  background: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.success-message.hidden-form {
+  display: none;
+}
+
+.form-toggle {
+  display: flex;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 0.75rem;
+  background: #e9ecef;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn.active {
+  background: #133B1C;
+  color: white;
+}
+
+.hidden-form {
+  display: none;
+}
+
+.active-form {
+  display: grid;
+}
+
+#goToSignUp {
+  background: transparent;
+  color: black;
+  border: 1px solid #133B1C;
+}
+
+#goToSignUp:hover {
+  background: #e9f0fd;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+form {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: grid;
+  gap: 1.2rem;
+}
+
+.gender-group {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+button {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button[type="submit"] {
+  background: #133B1C;
+  color: #fff;
+}
+
+button[type="submit"]:hover {
+  background: #0f2c16;
+}
+
+button[type="reset"] {
+  background: #e9f0fd;
+  color: black;
+}
+
+button[type="reset"]:hover {
+  background: #33692e;
+  color: white;
+}
+
+/* Floating Label Styles */
+.floating-group {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.floating-group input,
+.floating-group textarea {
+  width: 100%;
+  padding: 1rem 0.75rem 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccd2da;
+  border-radius: 0.5rem;
+  background: transparent;
+  resize: vertical;
+}
+
+.floating-group label {
+  position: absolute;
+  top: 1rem;
+  left: 0.75rem;
+  font-size: 1rem;
+  color: #666;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  background-color: white;
+  padding: 0 0.25rem;
+}
+
+.floating-group input:focus + label,
+.floating-group input:not(:placeholder-shown) + label,
+.floating-group textarea:focus + label,
+.floating-group textarea:not(:placeholder-shown) + label {
+  top: -0.5rem;
+  left: 0.6rem;
+  font-size: 0.75rem;
+  color: #133B1C;
+}
+
+/* Footer Styles */
+.site-footer {
+  background: #d9f4e5;
+  padding: 2rem 0 0.5rem 0;
+  margin-top: 2rem;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.04);
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-logo img {
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: transform 0.25s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.2s;
+}
+
+.footer-logo img:hover {
+  transform: translateY(-15px) scale(1.1) rotate(-5deg);
+  box-shadow: 0 8px 24px rgba(19,59,28,0.18);
+  background: #c8ebd8;
+}
+
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-links a {
+  color: #133B1C;
+  text-decoration: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #33692e;
+  text-decoration: underline;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social a img {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  transition: transform 0.25s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.2s;
+}
+
+.footer-social a:hover img {
+  transform: translateY(-15px) scale(1.1) rotate(-5deg);
+  box-shadow: 0 8px 24px rgba(19,59,28,0.18);
+  background: #c8ebd8;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 1rem 0 0.5rem 0;
+  font-size: 1rem;
+  color: #526952;
+  border-top: 1px solid #b2e2c7;
+  margin-top: 1rem;
+}
+
+

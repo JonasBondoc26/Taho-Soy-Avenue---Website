@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="CSS/style-signup.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans&display=swap" rel="stylesheet">
+  <title>TAHO Soy Avenue - Sign In</title>
+  <link rel="icon" type="image/png" href="photos/MiniTaho.png">
+</head>
+<body>
+  
+<header>
+  <div>
+    <a href=""><img src="photos/TAHO.png" alt="Taho Soy Avenue Logo" class="header-logo"></a>
+  </div>
+
+  <nav class="header-nav">
+    <a href="menu.htm">Menu</a>
+    <a href="feature.htm">Feature</a>
+    <a href="contact.htm">Contact</a>
+  </nav>
+
+  <div>
+    <a href="index.htm"><button class="header-signin-btn">Go back home</button></a>
+  </div>
+</header>
+
+<h1>Sign in to your account</h1>
+<p>Not a member yet? Join TAHO Soy Avenue</p>
+  <div class="container">
+    <div id="successMessage" class="success-message hidden-form"></div>
+    <div class="form-toggle">
+      <button type="button" class="toggle-btn active" id="signInToggle">Sign In</button>
+      <button type="button" class="toggle-btn" id="signUpToggle">Sign Up</button>
+    </div>
+
+    <!-- Sign Up Form -->
+    <form id="signUpForm" class="hidden-form">
+      <div class="floating-group">
+        <input type="text" id="firstName" name="firstName" placeholder=" " required />
+        <label for="firstName">First Name</label>
+      </div>
+
+      <div class="floating-group">
+        <input type="text" id="lastName" name="lastName" placeholder=" " required />
+        <label for="lastName">Last Name</label>
+      </div>
+
+      <div>
+        <label>Gender</label>
+        <div class="gender-group">
+          <label><input type="radio" name="gender" value="Male" required /> Male</label>
+          <label><input type="radio" name="gender" value="Female" /> Female</label>
+          <label><input type="radio" name="gender" value="Other" /> Other</label>
+        </div>
+      </div>
+
+      <div class="floating-group">
+        <textarea id="address" name="address" rows="2" placeholder=" " required></textarea>
+        <label for="address">Address</label>
+      </div>
+
+      <div class="floating-group">
+        <input type="tel" id="contact" name="contact" placeholder=" " pattern="[0-9+\-() ]+" required />
+        <label for="contact">Contact Number</label>
+      </div>
+
+      <div class="floating-group">
+        <input type="email" id="email" name="email" placeholder=" " required />
+        <label for="email">Email Address</label>
+      </div>
+
+      <div class="floating-group">
+        <input type="date" id="dob" name="dob" placeholder=" " required />
+        <label for="dob">Date of Birth</label>
+      </div>
+
+      <div class="floating-group">
+        <input type="text" id="username" name="username" placeholder=" " required />
+        <label for="username">Username</label>
+      </div>
+
+      <div class="floating-group">
+        <input type="password" id="password" name="password" placeholder=" " required />
+        <label for="password">Password</label>
+      </div>
+
+      <div class="button-group">
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+
+    <!-- Sign In Form -->
+    <form id="signInForm" class="active-form">
+      <div class="floating-group">
+        <input type="text" id="signInUsername" name="signInUsername" placeholder=" " required />
+        <label for="signInUsername">Username or Email</label>
+      </div>
+
+      <div class="floating-group">
+        <input type="password" id="signInPassword" name="signInPassword" placeholder=" " required />
+        <label for="signInPassword">Password</label>
+      </div>
+
+      <div class="button-group">
+        <button type="submit">Sign In</button>
+        <button type="button" id="goToSignUp">Need an account? Sign Up</button>
+      </div>
+    </form>
+  </div>
+
+  <footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <img src="photos/MiniTaho.png" alt="Taho Soy Avenue Mini Logo" />
+    </div>
+    <div class="footer-links">
+      <a href="index.htm">Home</a>
+      <a href="menu.htm">Menu</a>
+      <a href="feature.htm">Feature</a>
+      <a href="contact.htm">Contact Us</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/tahosoyavenue" aria-label="Facebook" target="_blank"><img src="photos/Facebook_logo.png" alt="Facebook" /></a>
+      <a href="https://www.instagram.com/tahosoyavenue/?hl=en" aria-label="Instagram" target="_blank"><img src="photos/Instagram_logo.png" alt="Instagram" /></a>
+      <!-- Add more social icons as needed -->
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Taho Soy Avenue. All rights reserved.</p>
+  </div>
+</footer>
+  <script src="js/signup-script.js" defer></script>
+</body>
+
+</html>
