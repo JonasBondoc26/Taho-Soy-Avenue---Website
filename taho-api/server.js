@@ -43,18 +43,31 @@ const MESSAGES = [
   { id: 3, name: 'Ana L.', email: 'ana@example.com', message: 'Where is your stall located?', dateSent: '2025-09-20' },
 ];
 
-// ---------------- HELPER FUNCTION ----------------
+// ---------------- HELPER ----------------
 function searchArray(arr, q) {
   if (!q) return arr;
   q = q.trim().toLowerCase();
-  return arr.filter(item =>
-    Object.values(item).some(val =>
-      val && String(val).toLowerCase().includes(q)
-    )
-  );
+  return arr.filter(item => {
+    return Object.values(item).some(val => {
+      if (val === null || val === undefined) return false;
+      return String(val).toLowerCase().includes(q);
+    });
+  });
 }
 
+function nextProductId() {
+  if (!PRODUCTS.length) return 1;
+  return Math.max(...PRODUCTS.map(p => p.id)) + 1;
+}
+
+// ---------------- DASHBOARD ROUTE ----------------
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
+});
+
 // ---------------- API ROUTES ----------------
+
+// GET all products (supports q and category)
 app.get('/api/products', (req, res) => {
   const q = req.query.q || '';
   const category = req.query.category;
@@ -67,6 +80,62 @@ app.get('/api/products', (req, res) => {
   res.json({ count: results.length, data: results });
 });
 
+// GET single product by id
+app.get('/api/products/:id', (req, res) => {
+  const id = Number(req.params.id);
+  const product = PRODUCTS.find(p => p.id === id);
+  if (!product) return res.status(404).json({ error: 'Product not found' });
+  res.json(product);
+});
+
+// CREATE product
+app.post('/api/products', (req, res) => {
+  const body = req.body || {};
+  // basic validation
+  if (!body.name || !body.category || (body.price === undefined || body.price === null)) {
+    return res.status(400).json({ error: 'Missing required fields: name, category, price' });
+  }
+
+  const newProduct = {
+    id: nextProductId(),
+    name: String(body.name),
+    category: String(body.category),
+    desc: body.desc ? String(body.desc) : '',
+    size: body.size ? String(body.size) : '',
+    price: Number(body.price)
+  };
+
+  PRODUCTS.push(newProduct);
+  res.status(201).json({ success: true, product: newProduct });
+});
+
+// UPDATE product
+app.put('/api/products/:id', (req, res) => {
+  const id = Number(req.params.id);
+  const idx = PRODUCTS.findIndex(p => p.id === id);
+  if (idx === -1) return res.status(404).json({ error: 'Product not found' });
+
+  const body = req.body || {};
+  // update only allowed fields
+  PRODUCTS[idx].name = body.name !== undefined ? String(body.name) : PRODUCTS[idx].name;
+  PRODUCTS[idx].category = body.category !== undefined ? String(body.category) : PRODUCTS[idx].category;
+  PRODUCTS[idx].desc = body.desc !== undefined ? String(body.desc) : PRODUCTS[idx].desc;
+  PRODUCTS[idx].size = body.size !== undefined ? String(body.size) : PRODUCTS[idx].size;
+  PRODUCTS[idx].price = body.price !== undefined ? Number(body.price) : PRODUCTS[idx].price;
+
+  res.json({ success: true, product: PRODUCTS[idx] });
+});
+
+// DELETE product
+app.delete('/api/products/:id', (req, res) => {
+  const id = Number(req.params.id);
+  const idx = PRODUCTS.findIndex(p => p.id === id);
+  if (idx === -1) return res.status(404).json({ error: 'Product not found' });
+  const removed = PRODUCTS.splice(idx, 1);
+  res.json({ success: true, product: removed[0] });
+});
+
+// --- customers & messages (GET only) ---
 app.get('/api/customers', (req, res) => {
   const q = req.query.q || '';
   let results = CUSTOMERS.slice();
@@ -81,19 +150,11 @@ app.get('/api/messages', (req, res) => {
   res.json({ count: results.length, data: results });
 });
 
-// ---------------- DASHBOARD ROUTE ----------------
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
-});
-
-// ---------------- STATIC + HEALTH ----------------
+// ---------------- STATIC + DASHBOARD ----------------
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/health', (req, res) =>
-  res.send({ status: 'OK', time: new Date().toISOString() })
-);
+// minimal health endpoint
+app.get('/health', (req, res) => res.send({ status: 'OK', time: new Date().toISOString() }));
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () =>
-  console.log(`✅ Server running at http://localhost:${PORT}`)
-);
+app.listen(PORT, () => console.log(`✅ Server running at http://localhost:${PORT}`));
