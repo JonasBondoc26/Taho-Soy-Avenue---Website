@@ -1,13 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Products — Taho Soy Avenue</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-  <style>
-    * {
+* {
       box-sizing: border-box;
       font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
@@ -171,72 +162,3 @@
         padding: 20px;
       }
     }
-  </style>
-</head>
-<body>
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div>
-      <h2>🍮 Admin Panel</h2>
-      <nav class="nav-links">
-        <a href="/" >🏠 Dashboard</a>
-        <a href="/products.html" class="active">📦 Product List</a>
-        <a href="/customers-list.html">👥 Customers</a>
-        <a href="/messages.html">💬 Messages</a>
-      </nav>
-    </div>
-    <div class="footer">
-      © 2025 Taho Soy Avenue <br> All Rights Reserved
-    </div>
-  </aside>
-
-  <!-- Main Content -->
-  <main class="main">
-    <h1>📦 Products / Services</h1>
-
-    <div class="controls">
-      <input id="search" placeholder="Search products..." />
-      <select id="category">
-        <option value="">All categories</option>
-        <option value="classic">Classic</option>
-        <option value="specialty">Specialty</option>
-        <option value="toppings">Toppings</option>
-        <option value="cookies">Cookies</option>
-      </select>
-      <button id="btnSearch">Search</button>
-    </div>
-
-    <div id="resultInfo"></div>
-    <div id="grid" class="grid"></div>
-  </main>
-
-  <script>
-    const grid = document.getElementById('grid');
-    const searchInput = document.getElementById('search');
-    const categorySelect = document.getElementById('category');
-    const info = document.getElementById('resultInfo');
-
-    async function loadProducts() {
-      const q = encodeURIComponent(searchInput.value);
-      const cat = categorySelect.value ? `&category=${encodeURIComponent(categorySelect.value)}` : '';
-      const url = `/api/products?q=${q}${cat}`;
-      const res = await fetch(url);
-      const json = await res.json();
-      info.textContent = `${json.count} result(s) found`;
-      grid.innerHTML = json.data.map(p => `
-        <div class="card">
-          <h3>${p.name}</h3>
-          <p>${p.desc || ''}</p>
-          <p class="price">₱${p.price}${p.size ? ' • ' + p.size : ''}</p>
-          <p><small>Category: ${p.category}</small></p>
-        </div>
-      `).join('');
-    }
-
-    document.getElementById('btnSearch').addEventListener('click', loadProducts);
-    searchInput.addEventListener('keyup', e => { if (e.key === 'Enter') loadProducts(); });
-
-    loadProducts();
-  </script>
-</body>
-</html>
