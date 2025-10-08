@@ -1,20 +1,41 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <title>Customer List — Taho Soy Avenue</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <style>body{font-family:Arial;padding:20px} table{width:100%;border-collapse:collapse} th,td{padding:8px;border:1px solid #ddd}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <h1>Customer List</h1>
-  <input id="q" placeholder="Search customers (name, email, phone)"/>
-  <button id="search">Search</button>
-  <div id="count"></div>
-  <table id="tbl">
-    <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Joined</th></tr></thead>
-    <tbody></tbody>
-  </table>
+  <aside class="sidebar">
+    <div>
+      <h2>Admin Panel</h2>
+      <nav class="nav-links">
+        <a href="/">🏠 Dashboard</a>
+        <a href="/products.html">📦 Product List</a>
+        <a href="/customer-list.html" class="active">👥 Customers</a>
+        <a href="/customer-messages.html">💬 Messages</a>
+      </nav>
+    </div>
+    <div class="footer">© 2025 Taho Soy Avenue <br> All Rights Reserved</div>
+  </aside>
+
+  <main class="main">
+    <h1>👥 Customer List</h1>
+    <div class="controls">
+      <input id="q" placeholder="Search customers (name, email, phone)" />
+      <button id="search">Search</button>
+    </div>
+
+    <div id="count"></div>
+    <table id="tbl">
+      <thead>
+        <tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Joined</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </main>
 
   <script>
     const tbody = document.querySelector('#tbl tbody');
@@ -24,7 +45,7 @@
       const url = `/api/customers?q=${encodeURIComponent(q)}`;
       const res = await fetch(url);
       const js = await res.json();
-      count.textContent = `${js.count} customer(s)`;
+      count.textContent = `${js.count} customer(s) found`;
       tbody.innerHTML = js.data.map(c => `
         <tr>
           <td>${c.id}</td>
@@ -37,7 +58,7 @@
     }
 
     document.getElementById('search').addEventListener('click', () => load(document.getElementById('q').value));
-    document.getElementById('q').addEventListener('keyup', (e) => { if (e.key === 'Enter') load(e.target.value); });
+    document.getElementById('q').addEventListener('keyup', e => { if (e.key === 'Enter') load(e.target.value); });
 
     load();
   </script>
