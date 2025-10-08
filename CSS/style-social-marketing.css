@@ -70,159 +70,64 @@ nav a.active{
   background-color: #c8ebd8;
 }
 
-/* Contact Page */
-.contact-main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 2rem 0;
-  margin-top: -2rem;
+/* Social Marketing Styles */
+.social-preview {
+    display: flex;
+    flex-direction: row; /* put cards side-by-side */
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap; /* wrap when screen is smaller */
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-.contact-section {
-  background: #eaf7ea;
-  border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(126, 141, 132, 0.10);
-  padding: 2.5rem 2rem;
-  max-width: 500px;
-  width: 100%;
-  margin: 2rem auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.social-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    flex: 1 1 300px;
+    max-width: 350px;
 }
 
-.contact-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.2rem;
-  color: #133B1C;
-  margin-bottom: 0.5rem;
-  letter-spacing: 2px;
+.social-card h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: #133B1C;
+    margin-bottom: 1rem;
 }
 
-.contact-desc {
-  color: #526952;
-  font-size: 1.1rem;
-  text-align: center;
-  margin-bottom: 2rem;
+.embed-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-.contact-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  margin-bottom: 2rem;
+.social-card img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.5rem;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
+.social-link {
+    background: #133B1C;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    font-family: 'Bebas Neue', sans-serif;
+    transition: all 0.2s;
+    display: inline-block;
+    margin-top: 1rem;
 }
 
-.form-group label {
-  font-size: 1rem;
-  color: #133B1C;
-  font-weight: 500;
+.social-link:hover {
+    background: #fff;
+    color: #133B1C;
+    border: 2px solid #133B1C;
 }
 
-.form-group label[for="platform"] {
-  font-weight: 500;
-  font-family: 'Capriola', sans-serif;
-  margin-bottom: 8px;
-  display: block;
-  color: #234b2c;
-}
-
-.form-group select#platform {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1.5px solid #c8ebd8;
-  border-radius: 8px;
-  background: #f4faf5;
-  font-size: 16px;
-  font-family: 'Capriola', sans-serif;
-  color: #234b2c;
-  transition: border-color 0.2s;
-  margin-top: 5px;
-  margin-bottom: 15px;
-}
-
-.form-group select#platform:focus {
-  border-color: #133B1C;
-  outline: none;
-  background: #e4efdf;
-}
-
-.form-group input,
-.form-group textarea {
-  padding: 0.7rem 1rem;
-  border: 2px solid #d9f4e5;
-  border-radius: 8px;
-  font-size: 1rem;
-  background: #fff;
-  color: #133B1C;
-  transition: border 0.2s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: #133B1C;
-  outline: none;
-}
-
-.contact-btn {
-  padding: 0.7rem 2rem;
-  font-size: 1.1rem;
-  border: 2px solid #133B1C;
-  background: #133B1C;
-  color: #fff;
-  border-radius: 999px;
-  cursor: pointer;
-  font-family: 'Bebas Neue', sans-serif;
-  transition: background 0.2s, color 0.2s;
-}
-
-.contact-btn:hover {
-  background: #fff;
-  color: #133B1C;
-}
-
-.contact-info {
-  margin-top: 1.5rem;
-  font-size: 1rem;
-  color: #133B1C;
-  text-align: left;
-  width: 100%;
-}
-
-.contact-info a {
-  color: #00754a;
-  text-decoration: underline;
-  transition: color 0.2s;
-}
-
-.contact-info a:hover {
-  color: #133B1C;
-}
-
-.contact-icons p {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  margin-bottom: 1rem;
-}
-
-.contact-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(19,59,28,0.08);
-  background: #eaf7ea;
-  object-fit: cover;
-}
 
 /* Footer Styles */
 .site-footer {
@@ -300,5 +205,3 @@ nav a.active{
   border-top: 1px solid #b2e2c7;
   margin-top: 1rem;
 }
-
-

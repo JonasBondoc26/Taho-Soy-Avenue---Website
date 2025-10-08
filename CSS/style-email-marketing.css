@@ -1,0 +1,68 @@
+body {
+    font-family: 'Capriola', sans-serif;
+    background-color: #F4FAF5;
+    margin: 0;
+    padding: 0;
+}
+.email-container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+.email-header {
+    background: #D7EBD1;
+    text-align: center;
+    padding: 20px;
+}
+.email-header img {
+    width: 120px;
+}
+.email-body {
+    padding: 30px;
+    color: #234b2c;
+    line-height: 1.6;
+}
+.email-body h1 {
+    color: #133B1C;
+    text-align: center;
+    font-size: 28px;
+}
+.email-body p {
+    text-align: center;
+    margin: 20px 0;
+    color: #234b2c;
+}
+.email-offer {
+    background: #c8ebd8;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+.email-offer h2 {
+    color: #133B1C;
+}
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #234b2c;
+    color: #E4EFDF;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+.cta-button:hover {
+    background: #E4EFDF;
+    color: #133B1C;
+}
+.email-footer {
+    background: #d9f4e5;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    color: #234b2c;
+}

@@ -35,7 +35,8 @@
     <p class="contact-desc">
       We'd love to hear from you! For inquiries, feedback, or orders, please fill out the form below or reach us through our social channels.
     </p>
-    <form class="contact-form">
+
+    <form class="contact-form" id="contactForm">
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required placeholder="Your Name">
@@ -48,8 +49,20 @@
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="5" required placeholder="Type your message here..."></textarea>
       </div>
+
+      <!-- NEW SECTION: Platform selection -->
+      <div class="form-group">
+        <label for="platform">Select Marketing Platform</label>
+        <select id="platform" name="platform" required>
+          <option value="">-- Select Platform --</option>
+          <option value="email">Email Marketing</option>
+          <option value="social">Social Media Marketing</option>
+        </select>
+      </div>
+
       <button type="submit" class="contact-btn">Send Message</button>
     </form>
+
     <div class="contact-info contact-icons">
       <p>
         <img src="photos/Email_logo.png" alt="Email" class="contact-icon">
@@ -75,7 +88,7 @@
   </section>
 </main>
 
-  <footer class="site-footer">
+<footer class="site-footer">
   <div class="footer-content">
     <div class="footer-logo">
       <img src="photos/MiniTaho.png" alt="Taho Soy Avenue Mini Logo" />
@@ -87,15 +100,30 @@
       <a href="contact.htm">Contact Us</a>
     </div>
     <div class="footer-social">
-      <a href="https://www.facebook.com/tahosoyavenue" aria-label="Facebook" target="_blank"><img src="photos/Facebook_logo.png" alt="Facebook" /></a>
-      <a href="https://www.instagram.com/tahosoyavenue/?hl=en" aria-label="Instagram" target="_blank"><img src="photos/Instagram_logo.png" alt="Instagram" /></a>
-      <!-- Add more social icons as needed -->
+      <a href="https://www.facebook.com/tahosoyavenue" target="_blank"><img src="photos/Facebook_logo.png" alt="Facebook" /></a>
+      <a href="https://www.instagram.com/tahosoyavenue/?hl=en" target="_blank"><img src="photos/Instagram_logo.png" alt="Instagram" /></a>
     </div>
   </div>
   <div class="footer-bottom">
     <p>&copy; 2025 Taho Soy Avenue. All rights reserved.</p>
   </div>
 </footer>
-</body>
 
+<!-- JavaScript redirect -->
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent actual form submission
+  const platform = document.getElementById('platform').value;
+
+  if (platform === 'email') {
+    window.location.href = 'email-marketing.htm';
+  } else if (platform === 'social') {
+    window.location.href = 'social-marketing.htm';
+  } else {
+    alert('Please select a platform.');
+  }
+});
+</script>
+
+</body>
 </html>
