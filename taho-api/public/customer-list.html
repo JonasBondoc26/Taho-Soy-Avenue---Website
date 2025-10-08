@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Customer List — Taho Soy Avenue</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>body{font-family:Arial;padding:20px} table{width:100%;border-collapse:collapse} th,td{padding:8px;border:1px solid #ddd}</style>
+</head>
+<body>
+  <h1>Customer List</h1>
+  <input id="q" placeholder="Search customers (name, email, phone)"/>
+  <button id="search">Search</button>
+  <div id="count"></div>
+  <table id="tbl">
+    <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Joined</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const tbody = document.querySelector('#tbl tbody');
+    const count = document.getElementById('count');
+
+    async function load(q='') {
+      const url = `/api/customers?q=${encodeURIComponent(q)}`;
+      const res = await fetch(url);
+      const js = await res.json();
+      count.textContent = `${js.count} customer(s)`;
+      tbody.innerHTML = js.data.map(c => `
+        <tr>
+          <td>${c.id}</td>
+          <td>${c.firstName} ${c.lastName}</td>
+          <td>${c.email}</td>
+          <td>${c.phone || '-'}</td>
+          <td>${c.joined || '-'}</td>
+        </tr>
+      `).join('');
+    }
+
+    document.getElementById('search').addEventListener('click', () => load(document.getElementById('q').value));
+    document.getElementById('q').addEventListener('keyup', (e) => { if (e.key === 'Enter') load(e.target.value); });
+
+    load();
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Customer Messages — Taho Soy Avenue</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>body{font-family:Arial;padding:20px}.msg{border:1px solid #ddd;padding:12px;margin-bottom:8px;border-radius:6px}</style>
+</head>
+<body>
+  <h1>Customer Messages</h1>
+  <input id="q" placeholder="Search messages (name, email, text)"/>
+  <button id="go">Search</button>
+  <div id="list"></div>
+
+  <script>
+    const list = document.getElementById('list');
+    async function load(q='') {
+      const res = await fetch(`/api/messages?q=${encodeURIComponent(q)}`);
+      const js = await res.json();
+      list.innerHTML = js.data.map(m => `
+        <div class="msg">
+          <strong>${m.name} (${m.email})</strong> <em>${m.dateSent}</em>
+          <p>${m.message}</p>
+        </div>
+      `).join('') || '<p>No messages found.</p>';
+    }
+
+    document.getElementById('go').addEventListener('click', () => load(document.getElementById('q').value));
+    document.getElementById('q').addEventListener('keyup', (e)=>{ if(e.key==='Enter') load(e.target.value);});
+    load();
+  </script>
+</body>
+</html>
