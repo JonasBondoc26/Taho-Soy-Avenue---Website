@@ -1,68 +1,355 @@
+/* =========================================================
+   Email Marketing Page (styled like an opened promo email)
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-    font-family: 'Capriola', sans-serif;
-    background-color: #F4FAF5;
-    margin: 0;
-    padding: 0;
+  font-family: 'AR One Sans', "Segoe UI", Roboto, Arial, sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(233, 162, 59, 0.18) 0, transparent 30%),
+    radial-gradient(circle at 90% 90%, rgba(217, 37, 43, 0.08) 0, transparent 30%),
+    #F4FAF5;
+  margin: 0;
+  padding: 0 1rem 3rem;
+  color: #234b2c;
 }
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ---------- Inbox bar ---------- */
+.inbox-bar {
+  max-width: 700px;
+  margin: 1.5rem auto 1rem;
+}
+
+.back-link {
+  display: inline-block;
+  color: #133B1C;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(19, 59, 28, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.back-link:hover {
+  transform: translateX(-4px);
+}
+
+.inbox-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.88rem;
+  color: #526952;
+}
+
+.inbox-meta img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 3px;
+  box-shadow: 0 2px 10px rgba(19, 59, 28, 0.08);
+}
+
+.inbox-meta strong {
+  color: #133B1C;
+}
+
+.inbox-meta span {
+  display: block;
+  color: #133B1C;
+  font-weight: 600;
+}
+
+/* ---------- Email ---------- */
 .email-container {
-    max-width: 700px;
-    margin: 40px auto;
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  max-width: 700px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(19, 59, 28, 0.15);
+  animation: openMail 0.7s cubic-bezier(.22, 1, .36, 1) both;
 }
+
+@keyframes openMail {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: none; }
+}
+
 .email-header {
-    background: #D7EBD1;
-    text-align: center;
-    padding: 20px;
+  background: #D9F4E5;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  height: 110px;
 }
+
 .email-header img {
-    width: 120px;
+  width: 260px;
+  margin-top: -70px;
 }
+
+.email-hero img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
 .email-body {
-    padding: 30px;
-    color: #234b2c;
-    line-height: 1.6;
+  padding: 2.5rem 2.5rem 2rem;
+  line-height: 1.6;
+  text-align: center;
 }
+
+.email-eyebrow {
+  display: inline-block;
+  font-family: 'Capriola', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #D9252B;
+  background: rgba(217, 37, 43, 0.08);
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+}
+
 .email-body h1 {
-    color: #133B1C;
-    text-align: center;
-    font-size: 28px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 1px;
+  line-height: 1;
+  color: #133B1C;
+  margin: 0.8rem 0;
 }
+
 .email-body p {
-    text-align: center;
-    margin: 20px 0;
-    color: #234b2c;
+  margin: 0 0 1.2rem;
+  color: #526952;
 }
+
 .email-offer {
-    background: #c8ebd8;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    margin-top: 20px;
+  position: relative;
+  margin: 2rem 0;
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #133B1C, #062A0E);
+  color: #ffffff;
+  overflow: hidden;
 }
+
+/* Ticket-style cut-outs on the sides */
+.email-offer::before,
+.email-offer::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ffffff;
+  transform: translateY(-50%);
+}
+
+.email-offer::before { left: -15px; }
+.email-offer::after  { right: -15px; }
+
+.offer-tag {
+  display: inline-block;
+  background: #E9A23B;
+  color: #062A0E;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+}
+
 .email-offer h2 {
-    color: #133B1C;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.6rem;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin: 0.8rem 0;
 }
+
+.email-offer h2 span {
+  color: #E9A23B;
+}
+
+.email-offer p {
+  color: #D9F4E5;
+  max-width: 440px;
+  margin: 0 auto 1.4rem;
+}
+
 .cta-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    background: #234b2c;
-    color: #E4EFDF;
-    text-decoration: none;
-    border-radius: 30px;
-    transition: 0.3s;
+  display: inline-block;
+  padding: 0.85rem 2.2rem;
+  background: #D9252B;
+  color: #ffffff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 1.5px;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(217, 37, 43, 0.4);
+  transition: transform 0.2s ease, background 0.2s ease;
 }
+
 .cta-button:hover {
-    background: #E4EFDF;
-    color: #133B1C;
+  background: #ffffff;
+  color: #133B1C;
+  transform: translateY(-3px);
 }
+
+.email-section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  color: #133B1C;
+  margin: 2.5rem 0 1rem;
+}
+
+.email-products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.email-product {
+  background: #F4FAF5;
+  border-radius: 16px;
+  overflow: hidden;
+  padding-bottom: 0.8rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.email-product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(19, 59, 28, 0.12);
+}
+
+.email-product img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin-bottom: 0.6rem;
+}
+
+.email-product strong {
+  display: block;
+  color: #133B1C;
+  font-size: 0.92rem;
+}
+
+.email-product span {
+  color: #D9252B;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+}
+
+.email-visit {
+  background: #FFF6E6;
+  border: 2px dashed rgba(233, 162, 59, 0.5);
+  border-radius: 16px;
+  padding: 1.2rem 1.4rem 0.2rem;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.email-visit strong {
+  color: #133B1C;
+}
+
+.follow-text {
+  margin-top: 2rem !important;
+}
+
+.email-social {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.email-social a {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #D9F4E5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(.68, -0.55, .27, 1.55);
+}
+
+.email-social a:hover {
+  transform: translateY(-5px) rotate(-8deg);
+}
+
+.email-social img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}
+
 .email-footer {
-    background: #d9f4e5;
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    color: #234b2c;
+  background: #133B1C;
+  text-align: center;
+  padding: 1.3rem 1rem;
+  font-size: 0.85rem;
+  color: #D9F4E5;
+}
+
+.email-footer p {
+  margin: 0;
+}
+
+.email-footer .unsub {
+  margin-top: 0.3rem;
+  font-size: 0.75rem;
+  color: #9AB492;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 560px) {
+  body {
+    padding: 0 0.75rem 2rem;
+  }
+
+  .email-body {
+    padding: 2rem 1.2rem 1.5rem;
+  }
+
+  .email-body h1 {
+    font-size: 2.4rem;
+  }
+
+  .email-hero img {
+    height: 200px;
+  }
+
+  .email-products {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .email-products .email-product:last-child {
+    display: none;
+  }
 }

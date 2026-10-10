@@ -1,207 +1,178 @@
-* {
-  box-sizing: border-box;
-  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
+/* =========================================================
+   Social Media Marketing Page
+   (Header, footer, buttons and colors are in style-global.css)
+   ========================================================= */
 
-body {
-  margin: 0;
-  background: #F4FAF5;
+.handle-row {
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  gap: 1.5rem;
-}
-
-/* Header Styles */
-header{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #d9f4e5;
-  padding-top: 1rem;
-  padding-left: 4rem;
-  padding-right: 2rem;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.8rem;
+  position: relative;
   z-index: 2;
 }
 
-.header-logo {
-  height: 150px;
-  margin: -2rem;
-}
-
-.header-nav {
+.handle {
   display: flex;
-  gap: 1.5rem;
-  flex: 1;
-  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1.1rem 0.4rem 0.4rem;
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  color: var(--green-800);
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.header-nav a {
-  font-family: 'Bebas Neue', sans-serif;
-  text-decoration: none;
-  color: #526952;
-  font-size: 2rem;
-  transition: color 0.2s ease;
+.handle:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
 }
 
-.header-nav a:hover {
-  color: #133B1C;
-  text-decoration: underline;
+.handle img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
 
-nav a.active{
-  text-decoration: underline;
-  color: #133B1C;
+/* ---------- Cards ---------- */
+.social-main {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 1rem 1.5rem 5rem;
 }
 
-.header-signin-btn {
-  padding: 0.4rem 1rem;
-  font-size: 1rem;
-  background: transparent;
-  border: 2px solid #2d4a30;
-  color: #2d4a30;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.header-signin-btn:hover {
-  background-color: #c8ebd8;
-}
-
-/* Social Marketing Styles */
 .social-preview {
-    display: flex;
-    flex-direction: row; /* put cards side-by-side */
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap; /* wrap when screen is smaller */
-    gap: 2rem;
-    margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+  align-items: start;
 }
 
 .social-card {
-    background: #fff;
-    border-radius: 16px;
-    padding: 1.5rem;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-    text-align: center;
-    flex: 1 1 300px;
-    max-width: 350px;
+  position: relative;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.social-card,
+.js .social-card.reveal {
+  transition: transform 0.35s ease, box-shadow 0.3s ease, opacity 0.7s ease;
+}
+
+.social-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Colored top strip per platform */
+.social-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+}
+
+.card-fb::before { background: #1877F2; }
+.card-ig::before { background: linear-gradient(90deg, #F58529, #DD2A7B, #8134AF, #515BD4); }
+.card-tt::before { background: linear-gradient(90deg, #25F4EE, #000000, #FE2C55); }
+
+.social-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.social-card-head .contact-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow-sm);
 }
 
 .social-card h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.8rem;
-    color: #133B1C;
-    margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+  line-height: 1;
+  color: var(--green-800);
+}
+
+.social-card-head span {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.fb-preview {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.fb-preview img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.social-card:hover .fb-preview img {
+  transform: scale(1.06);
+}
+
+.social-card p {
+  color: var(--muted);
+  margin: 0 0 1.2rem;
 }
 
 .embed-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.social-card img {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 0.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .social-link {
-    background: #133B1C;
-    color: #fff;
-    text-decoration: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 999px;
-    font-family: 'Bebas Neue', sans-serif;
-    transition: all 0.2s;
-    display: inline-block;
-    margin-top: 1rem;
+  display: block;
+  text-align: center;
+  background: #1877F2;
+  color: var(--white);
+  padding: 0.75rem 1.2rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  transition: transform 0.2s ease, filter 0.2s ease;
 }
 
 .social-link:hover {
-    background: #fff;
-    color: #133B1C;
-    border: 2px solid #133B1C;
+  transform: translateY(-2px);
+  filter: brightness(1.1);
 }
 
-
-/* Footer Styles */
-.site-footer {
-  background: #d9f4e5;
-  padding: 2rem 0 0.5rem 0;
-  margin-top: 2rem;
-  box-shadow: 0 -2px 12px rgba(0,0,0,0.04);
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+  .social-preview {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
+@media (max-width: 680px) {
+  .social-preview {
+    grid-template-columns: 1fr;
+  }
 
-.footer-logo img {
-  height: 60px;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-  transition: transform 0.25s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.2s;
-}
-
-.footer-logo img:hover {
-  transform: translateY(-15px) scale(1.1) rotate(-5deg);
-  box-shadow: 0 8px 24px rgba(19,59,28,0.18);
-  background: #c8ebd8;
-}
-
-
-.footer-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.footer-links a {
-  color: #133B1C;
-  text-decoration: none;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.2rem;
-  transition: color 0.2s;
-}
-
-.footer-links a:hover {
-  color: #33692e;
-  text-decoration: underline;
-}
-
-.footer-social {
-  display: flex;
-  gap: 1rem;
-}
-
-.footer-social a img {
-  height: 32px;
-  width: 32px;
-  border-radius: 50%;
-  transition: transform 0.25s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.2s;
-}
-
-.footer-social a:hover img {
-  transform: translateY(-15px) scale(1.1) rotate(-5deg);
-  box-shadow: 0 8px 24px rgba(19,59,28,0.18);
-  background: #c8ebd8;
-}
-
-.footer-bottom {
-  text-align: center;
-  padding: 1rem 0 0.5rem 0;
-  font-size: 1rem;
-  color: #526952;
-  border-top: 1px solid #b2e2c7;
-  margin-top: 1rem;
+  .social-main {
+    padding: 1rem 1rem 4rem;
+  }
 }
