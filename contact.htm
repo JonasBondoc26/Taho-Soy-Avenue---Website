@@ -3,117 +3,226 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="CSS/style-contact.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <title>TAHO Soy Avenue - Contact Us</title>
   <link rel="icon" type="image/png" href="photos/MiniTaho.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;600;700&family=Bebas+Neue&family=Capriola&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style-global.css" />
+  <link rel="stylesheet" href="CSS/style-contact.css" />
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-  
-<header>
-  <div>
-    <a href=""><img src="photos/TAHO.png" alt="Taho Soy Avenue Logo" class="header-logo"></a>
-  </div>
 
-  <nav class="header-nav">
+<div class="announce-bar">
+  <p>Open <strong>7:00AM – 8:00PM</strong> &nbsp;•&nbsp; Dine in · Pick up · Walk in &nbsp;•&nbsp; Try the NEW <strong>Taho Biscoff!</strong></p>
+</div>
+
+<header class="site-header">
+  <a href="index.htm" class="brand"><img src="photos/TAHO.png" alt="Taho Soy Avenue Logo" class="header-logo"></a>
+
+  <nav class="header-nav" id="site-nav">
     <a href="index.htm">Home</a>
     <a href="menu.htm">Menu</a>
     <a href="feature.htm">Feature</a>
     <a href="contact.htm" class="active">Contact Us</a>
+    <a href="Sign-up.htm" class="nav-signin">Sign In</a>
   </nav>
 
-  <div>
-    <a href="Sign-up.htm"><button class="header-signin-btn">Sign In</button></a>
+  <div class="header-actions">
+    <a href="Sign-up.htm" class="header-signin-btn">Sign In</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<main class="contact-main">
-  <section class="contact-section">
-    <h1 class="contact-title">Contact Us</h1>
-    <p class="contact-desc">
-      We'd love to hear from you! For inquiries, feedback, or orders, please fill out the form below or reach us through our social channels.
-    </p>
+<main>
 
-    <form class="contact-form" id="contactForm">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required placeholder="Your Name">
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required placeholder="you@email.com">
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required placeholder="Type your message here..."></textarea>
-      </div>
-
-      <!-- NEW SECTION: Platform selection -->
-      <div class="form-group">
-        <label for="platform">Select Marketing Platform</label>
-        <select id="platform" name="platform" required>
-          <option value="">-- Select Platform --</option>
-          <option value="email">Email Marketing</option>
-          <option value="social">Social Media Marketing</option>
-        </select>
-      </div>
-
-      <button type="submit" class="contact-btn">Send Message</button>
-    </form>
-
-    <div class="contact-info contact-icons">
-      <p>
-        <img src="photos/Email_logo.png" alt="Email" class="contact-icon">
-        <strong>-</strong>
-        <a href="mailto:tahosoyavenue@gmail.com">tahosoyavenue@gmail.com</a>
-      </p>
-      <p>
-        <img src="photos/Facebook_logo.png" alt="Facebook" class="contact-icon">
-        <strong>-</strong>
-        <a href="https://www.facebook.com/tahosoyavenue" target="_blank">tahosoyavenue</a>
-      </p>
-      <p>
-        <img src="photos/Instagram_logo.png" alt="Instagram" class="contact-icon">
-        <strong>-</strong>
-        <a href="https://www.instagram.com/tahosoyavenue/?hl=en" target="_blank">@tahosoyavenue</a>
-      </p>
-      <p>
-        <img src="photos/location_logo.png" alt="Location" class="contact-icon">
-        <strong>-</strong>
-        Stall 8 St. Vincent Bldg., Maligaya Street, Sindalan, City of San Fernando, Pampanga
-      </p>
+  <section class="page-hero">
+    <span class="bean bean-1"></span>
+    <span class="bean bean-2"></span>
+    <span class="bean bean-3"></span>
+    <span class="bean bean-4"></span>
+    <span class="eyebrow">Say Hello</span>
+    <h1>Contact <span class="accent">Us</span></h1>
+    <p>We'd love to hear from you! For inquiries, feedback, or orders, fill out the form below or reach us through our social channels.</p>
+    <div class="wave">
+      <svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0 35c160 30 320 40 480 25S800 5 960 10s320 40 480 35v25H0z"/></svg>
     </div>
   </section>
+
+  <section class="contact-main">
+
+    <!-- Contact details -->
+    <div class="contact-info reveal">
+      <h2>Get in touch</h2>
+      <p class="contact-info-sub">Drop by the store or message us online — we usually reply quickly!</p>
+
+      <a href="mailto:tahosoyavenue@gmail.com" class="contact-card">
+        <img src="photos/Email_logo.png" alt="Email" class="contact-icon">
+        <div>
+          <span>Email</span>
+          <strong>tahosoyavenue@gmail.com</strong>
+        </div>
+      </a>
+
+      <a href="https://www.facebook.com/tahosoyavenue" target="_blank" class="contact-card">
+        <img src="photos/Facebook_logo.png" alt="Facebook" class="contact-icon">
+        <div>
+          <span>Facebook</span>
+          <strong>tahosoyavenue</strong>
+        </div>
+      </a>
+
+      <a href="https://www.instagram.com/tahosoyavenue/?hl=en" target="_blank" class="contact-card">
+        <img src="photos/Instagram_logo.png" alt="Instagram" class="contact-icon">
+        <div>
+          <span>Instagram</span>
+          <strong>@tahosoyavenue</strong>
+        </div>
+      </a>
+
+      <a href="https://maps.google.com/?q=Taho+Soy+Avenue+San+Fernando+Pampanga" target="_blank" class="contact-card">
+        <img src="photos/location_logo.png" alt="Location" class="contact-icon">
+        <div>
+          <span>Visit Us</span>
+          <strong>Stall 8 St. Vincent Bldg., Maligaya Street, Sindalan, City of San Fernando, Pampanga</strong>
+        </div>
+      </a>
+
+      <div class="hours-card">
+        <h3><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Store Hours</h3>
+        <p><span>Open</span> <strong>7:00 AM – 8:00 PM</strong></p>
+        <p><span>Services</span> <strong>Dine in · Pick up · Walk in</strong></p>
+      </div>
+    </div>
+
+    <!-- Contact form -->
+    <div class="contact-section reveal reveal-delay-1">
+      <h2 class="contact-title">Send us a message</h2>
+      <p class="contact-desc">Fill in your details and pick how you'd like to hear from us.</p>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="you@email.com">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Type your message here..."></textarea>
+        </div>
+
+        <!-- Platform selection -->
+        <div class="form-group">
+          <label>Select Marketing Platform</label>
+          <div class="platform-options">
+            <label class="platform-option">
+              <input type="radio" name="platform" value="email" required>
+              <span class="platform-box">
+                <img src="photos/Email_logo.png" alt="">
+                <strong>Email Marketing</strong>
+                <small>Get promos in your inbox</small>
+              </span>
+            </label>
+            <label class="platform-option">
+              <input type="radio" name="platform" value="social">
+              <span class="platform-box">
+                <img src="photos/Instagram_logo.png" alt="">
+                <strong>Social Media Marketing</strong>
+                <small>See our latest posts</small>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="contact-btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="section-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="section-title">Frequently asked <span class="accent">questions</span></h2>
+    </div>
+
+    <div class="faq-list reveal">
+      <details class="faq-item" open>
+        <summary>What are your store hours?</summary>
+        <p>We're open from 7:00 AM to 8:00 PM. Drop by for your morning taho fix or an afternoon treat!</p>
+      </details>
+      <details class="faq-item">
+        <summary>Where exactly is your store?</summary>
+        <p>You can find us at Stall 8 St. Vincent Bldg., Maligaya Street, Sindalan, City of San Fernando, Pampanga.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I dine in or pick up my order?</summary>
+        <p>Yes! We're open for dine in, pick up and walk in customers.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you serve taho hot or cold?</summary>
+        <p>Both! Our flavored taho is available hot or cold — perfect for any mood, any time.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I add extra toppings?</summary>
+        <p>Of course. Add extra syrup, graham, sago, nata, coffee jelly or whipped cream for ₱20 each. Check out the full list on our <a href="menu.htm">menu</a>.</p>
+      </details>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
   <div class="footer-content">
-    <div class="footer-logo">
+    <div class="footer-brand">
       <img src="photos/MiniTaho.png" alt="Taho Soy Avenue Mini Logo" />
+      <p>Silky, sweet and freshly made taho — hot or iced, the way you like it. Tahoho!</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/tahosoyavenue" aria-label="Facebook" target="_blank"><img src="photos/Facebook_logo.png" alt="Facebook" /></a>
+        <a href="https://www.instagram.com/tahosoyavenue/?hl=en" aria-label="Instagram" target="_blank"><img src="photos/Instagram_logo.png" alt="Instagram" /></a>
+        <a href="https://www.tiktok.com/@tahosoyavenue" aria-label="TikTok" target="_blank"><img src="photos/tiktok.png" alt="TikTok" /></a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="index.htm">Home</a>
-      <a href="menu.htm">Menu</a>
-      <a href="feature.htm">Feature</a>
-      <a href="contact.htm">Contact Us</a>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <div class="footer-links">
+        <a href="index.htm">Home</a>
+        <a href="menu.htm">Menu</a>
+        <a href="feature.htm">Feature</a>
+        <a href="contact.htm">Contact Us</a>
+        <a href="Sign-up.htm">Sign In / Sign Up</a>
+      </div>
     </div>
-    <div class="footer-social">
-      <a href="https://www.facebook.com/tahosoyavenue" target="_blank"><img src="photos/Facebook_logo.png" alt="Facebook" /></a>
-      <a href="https://www.instagram.com/tahosoyavenue/?hl=en" target="_blank"><img src="photos/Instagram_logo.png" alt="Instagram" /></a>
+    <div class="footer-col">
+      <h4>Visit Us</h4>
+      <p>Stall 8 St. Vincent Bldg., Maligaya Street, Sindalan, City of San Fernando, Pampanga</p>
+      <div class="footer-links"><a href="mailto:tahosoyavenue@gmail.com">tahosoyavenue@gmail.com</a></div>
+    </div>
+    <div class="footer-col">
+      <h4>Store Hours</h4>
+      <p>7:00 AM – 8:00 PM</p>
+      <p>Dine in · Pick up · Walk in</p>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2025 Taho Soy Avenue. All rights reserved.</p>
+    <p>&copy; <span class="year">2025</span> Taho Soy Avenue. All rights reserved. Made with love in Pampanga.</p>
   </div>
 </footer>
 
-<!-- JavaScript redirect -->
+<script src="js/main.js"></script>
+<!-- Redirect to the chosen marketing page -->
 <script>
 document.getElementById('contactForm').addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent actual form submission
-  const platform = document.getElementById('platform').value;
+  const selected = document.querySelector('input[name="platform"]:checked');
+  const platform = selected ? selected.value : '';
 
   if (platform === 'email') {
     window.location.href = 'email-marketing.htm';

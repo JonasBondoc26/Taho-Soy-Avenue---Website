@@ -3,255 +3,422 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="CSS/style-menu.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <title>TAHO Soy Avenue - Menus</title>
+  <title>TAHO Soy Avenue - Menu</title>
   <link rel="icon" type="image/png" href="photos/MiniTaho.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;600;700&family=Bebas+Neue&family=Capriola&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style-global.css" />
+  <link rel="stylesheet" href="CSS/style-menu.css" />
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-  
-<header>
-  <div>
-    <a href=""><img src="photos/TAHO.png" alt="Taho Soy Avenue Logo" class="header-logo"></a>
-  </div>
 
-  <nav class="header-nav">
+<div class="announce-bar">
+  <p>Open <strong>7:00AM – 8:00PM</strong> &nbsp;•&nbsp; Dine in · Pick up · Walk in &nbsp;•&nbsp; Try the NEW <strong>Taho Biscoff!</strong></p>
+</div>
+
+<header class="site-header">
+  <a href="index.htm" class="brand"><img src="photos/TAHO.png" alt="Taho Soy Avenue Logo" class="header-logo"></a>
+
+  <nav class="header-nav" id="site-nav">
     <a href="index.htm">Home</a>
     <a href="menu.htm" class="active">Menu</a>
     <a href="feature.htm">Feature</a>
     <a href="contact.htm">Contact Us</a>
+    <a href="Sign-up.htm" class="nav-signin">Sign In</a>
   </nav>
 
-  <div class="header-cart">
-    <button class="header-cart-btn" id="cart-toggle">
-      <span class="cart-icon">🛒</span>
+  <div class="header-actions">
+    <button class="header-cart-btn" id="cart-toggle" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
       <span class="cart-count">0</span>
     </button>
-  </div>
-
-  <div>
-    <a href="Sign-up.htm"><button class="header-signin-btn">Sign In</button></a>
+    <a href="Sign-up.htm" class="header-signin-btn">Sign In</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<main class="menu-container">
-  <div class="menu-header">
-    <h1 class="menu-title">OUR MENU</h1>
-    <p class="menu-subtitle">Discover our delicious selection of taho creations, from classic favorites to innovative new flavors</p>
-  </div>
-  
-  <div class="category-filter">
-    <button class="category-btn" data-category="specialty" data-subcategory="new">New</button>
-    <button class="category-btn active" data-category="all">All</button>
-    <button class="category-btn" data-category="classic">Classic Taho</button>
-    <button class="category-btn" data-category="specialty">Specialty Taho</button>
-    <button class="category-btn" data-category="toppings">Extra Toppings</button>
-    <button class="category-btn" data-category="cookies">Cookies</button>
-  </div>
-  
-  <div class="menu-grid">
-    <!-- Classic Taho Items -->
+<main>
+
+  <section class="page-hero">
+    <span class="bean bean-1"></span>
+    <span class="bean bean-2"></span>
+    <span class="bean bean-3"></span>
+    <span class="bean bean-4"></span>
+    <span class="eyebrow">Freshly made every day</span>
+    <h1>Our <span class="accent">Menu</span></h1>
+    <p>Discover our delicious selection of taho creations, from classic favorites to innovative new flavors — plus freshly baked cookies!</p>
+    <div class="wave">
+      <svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0 35c160 30 320 40 480 25S800 5 960 10s320 40 480 35v25H0z"/></svg>
+    </div>
+  </section>
+
+  <div class="menu-container">
+    <div class="category-filter">
+      <button class="category-btn category-new" data-category="specialty" data-subcategory="new">New</button>
+      <button class="category-btn active" data-category="all">All</button>
+      <button class="category-btn" data-category="classic">Classic Taho</button>
+      <button class="category-btn" data-category="specialty">Specialty Taho</button>
+      <button class="category-btn" data-category="toppings">Extra Toppings</button>
+      <button class="category-btn" data-category="cookies">Cookies</button>
+    </div>
+
+    <p class="menu-count" id="menu-count"></p>
+
+    <div class="menu-grid">
+
+    <!-- Classic Taho -->
     <div class="menu-item" data-category="classic">
-      <img src="photos/Classic Arnibal.jpg" alt="Classic Taho" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/Classic Arnibal.jpg" alt="Classic Taho" class="menu-item-image" loading="lazy">
+      </div>
       <div class="menu-item-content">
+        <span class="menu-item-tag">Classic Taho</span>
         <h3 class="menu-item-name">Classic Arnibal</h3>
         <p class="menu-item-desc">Traditional silken tofu with sweet arnibal syrup and chewy sago pearls</p>
-        <p class="menu-item-size">Large</p>
-        <p class="menu-item-price">₱95</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Large</p>
+            <p class="menu-item-price">₱95</p>
+          </div>
+        </div>
       </div>
     </div>
-    
-    <!-- Specialty Taho Items -->
-     <div class="menu-item" data-category="specialty" data-subcategory="new">
-      <img src="photos/biscoff.jpg" alt="Biscoff Taho" class="menu-item-image">
+
+    <!-- Specialty Taho -->
+    <div class="menu-item" data-category="specialty" data-subcategory="new">
+      <div class="menu-item-media">
+        <img src="photos/biscoff.jpg" alt="Biscoff Taho" class="menu-item-image" loading="lazy">
+        <span class="menu-badge">NEW</span>
+      </div>
       <div class="menu-item-content">
+        <span class="menu-item-tag">Specialty Taho</span>
         <h3 class="menu-item-name">Biscoff Taho</h3>
         <p class="menu-item-desc">Classic taho topped with Biscoff cookie spread with whipped cream and real Biscoff crumble</p>
-        <p class="menu-item-size">Large</p>        
-        <p class="menu-item-price">₱150</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Large</p>
+            <p class="menu-item-price">₱150</p>
+          </div>
+        </div>
       </div>
     </div>
-
     <div class="menu-item" data-category="specialty" data-subcategory="new">
-      <img src="photos/cookies and cream.jpg" alt="Cookies & Cream Taho" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/cookies and cream.jpg" alt="Cookies &amp; Cream Taho" class="menu-item-image" loading="lazy">
+        <span class="menu-badge">NEW</span>
+      </div>
       <div class="menu-item-content">
-        <h3 class="menu-item-name">Cookies & Cream Taho</h3>
-        <p class="menu-item-desc">Classic taho topped with Cookies & Cream spread with whipped cream and crumbled cookies</p>
-        <p class="menu-item-size">Large</p>        
-        <p class="menu-item-price">₱150</p>
+        <span class="menu-item-tag">Specialty Taho</span>
+        <h3 class="menu-item-name">Cookies &amp; Cream Taho</h3>
+        <p class="menu-item-desc">Classic taho topped with Cookies &amp; Cream spread with whipped cream and crumbled cookies</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Large</p>
+            <p class="menu-item-price">₱150</p>
+          </div>
+        </div>
       </div>
     </div>
-
     <div class="menu-item" data-category="specialty">
-      <img src="photos/salted.jpg" alt="Salted Toffee" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/salted.jpg" alt="Salted Toffee" class="menu-item-image" loading="lazy">
+      </div>
       <div class="menu-item-content">
+        <span class="menu-item-tag">Specialty Taho</span>
         <h3 class="menu-item-name">Salted Toffee</h3>
         <p class="menu-item-desc">Silky tofu with salted toffee syrup with whipped cream and chewy sago pearls</p>
-        <p class="menu-item-size">Large</p>    
-        <p class="menu-item-price">₱150</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Large</p>
+            <p class="menu-item-price">₱150</p>
+          </div>
+        </div>
       </div>
     </div>
-
-
     <div class="menu-item" data-category="specialty">
-      <img src="photos/strawberry.jpg" alt="Strawberry" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/strawberry.jpg" alt="Strawberry" class="menu-item-image" loading="lazy">
+      </div>
       <div class="menu-item-content">
+        <span class="menu-item-tag">Specialty Taho</span>
         <h3 class="menu-item-name">Strawberry</h3>
         <p class="menu-item-desc">Fresh strawberry syrup with soft tofu and sago pearls</p>
-        <p class="menu-item-size">Large</p>    
-        <p class="menu-item-price">₱105</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Large</p>
+            <p class="menu-item-price">₱105</p>
+          </div>
+        </div>
       </div>
     </div>
-
     <div class="menu-item" data-category="specialty">
-      <img src="photos/Pandan.jpg" alt="Pandan Taho" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/Pandan.jpg" alt="Pandan Taho" class="menu-item-image" loading="lazy">
+      </div>
       <div class="menu-item-content">
+        <span class="menu-item-tag">Specialty Taho</span>
         <h3 class="menu-item-name">Pandan Taho</h3>
         <p class="menu-item-desc">Creamy Pandan syrup with fresh buko and silken tofu and sago pearls</p>
-        <p class="menu-item-size">Large</p>    
-        <p class="menu-item-price">₱105</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Large</p>
+            <p class="menu-item-price">₱105</p>
+          </div>
+        </div>
       </div>
     </div>
-    
     <div class="menu-item" data-category="specialty">
-      <img src="photos/matcha.jpg" alt="Matcha Taho" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/matcha.jpg" alt="Matcha Taho" class="menu-item-image" loading="lazy">
+      </div>
       <div class="menu-item-content">
+        <span class="menu-item-tag">Specialty Taho</span>
         <h3 class="menu-item-name">Matcha Taho</h3>
         <p class="menu-item-desc">Japanese matcha syrup with soft tofu and sago pearls</p>
-        <p class="menu-item-size">Large</p>    
-        <p class="menu-item-price">₱105</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Large</p>
+            <p class="menu-item-price">₱105</p>
+          </div>
+        </div>
       </div>
     </div>
-
     <div class="menu-item" data-category="specialty">
-      <img src="photos/Mango.jpg" alt="Mango Taho" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/Mango.jpg" alt="Mango Taho" class="menu-item-image" loading="lazy">
+      </div>
       <div class="menu-item-content">
+        <span class="menu-item-tag">Specialty Taho</span>
         <h3 class="menu-item-name">Mango Taho</h3>
         <p class="menu-item-desc">Seasonal fresh mango syrup with soft tofu and mango jelly</p>
-        <p class="menu-item-size">Large</p>    
-        <p class="menu-item-price">₱105</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Large</p>
+            <p class="menu-item-price">₱105</p>
+          </div>
+        </div>
       </div>
     </div>
-    
+
     <!-- Toppings -->
     <div class="menu-item" data-category="toppings">
-      <img src="photos/syrup.jpg" alt="Extra Syrup" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/syrup.jpg" alt="Extra Syrup" class="menu-item-image" loading="lazy">
+      </div>
       <div class="menu-item-content">
+        <span class="menu-item-tag">Extra Topping</span>
         <h3 class="menu-item-name">Extra Syrup</h3>
-        <p class="menu-item-price">₱20</p>
+        <p class="menu-item-desc">More of our sweet arnibal syrup for the ultimate sweet tooth</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Add-on</p>
+            <p class="menu-item-price">₱20</p>
+          </div>
+        </div>
       </div>
     </div>
-
     <div class="menu-item" data-category="toppings">
-      <img src="photos/Graham.jpg" alt="Extra Graham" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/Graham.jpg" alt="Extra Graham" class="menu-item-image" loading="lazy">
+      </div>
       <div class="menu-item-content">
+        <span class="menu-item-tag">Extra Topping</span>
         <h3 class="menu-item-name">Extra Graham</h3>
-        <p class="menu-item-price">₱20</p>
+        <p class="menu-item-desc">Crushed graham crackers for an extra crunchy layer</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Add-on</p>
+            <p class="menu-item-price">₱20</p>
+          </div>
+        </div>
       </div>
     </div>
-
     <div class="menu-item" data-category="toppings">
-      <img src="photos/sago.jpg" alt="Extra Sago" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/sago.jpg" alt="Extra Sago" class="menu-item-image" loading="lazy">
+      </div>
       <div class="menu-item-content">
+        <span class="menu-item-tag">Extra Topping</span>
         <h3 class="menu-item-name">Extra Sago</h3>
-        <p class="menu-item-price">₱20</p>
+        <p class="menu-item-desc">An extra scoop of chewy sago pearls</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Add-on</p>
+            <p class="menu-item-price">₱20</p>
+          </div>
+        </div>
       </div>
     </div>
-
     <div class="menu-item" data-category="toppings">
-      <img src="photos/Nata.webp" alt="Extra Nata" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/Nata.webp" alt="Extra Nata" class="menu-item-image" loading="lazy">
+      </div>
       <div class="menu-item-content">
+        <span class="menu-item-tag">Extra Topping</span>
         <h3 class="menu-item-name">Add Nata</h3>
-        <p class="menu-item-price">₱20</p>
+        <p class="menu-item-desc">Sweet and chewy nata de coco cubes</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Add-on</p>
+            <p class="menu-item-price">₱20</p>
+          </div>
+        </div>
       </div>
     </div>
-
     <div class="menu-item" data-category="toppings">
-      <img src="photos/Coffee Jelly.jpg" alt="Add Coffee Jelly" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/Coffee Jelly.jpg" alt="Add Coffee Jelly" class="menu-item-image" loading="lazy">
+      </div>
       <div class="menu-item-content">
+        <span class="menu-item-tag">Extra Topping</span>
         <h3 class="menu-item-name">Add Coffee Jelly</h3>
-        <p class="menu-item-price">₱20</p>
+        <p class="menu-item-desc">Smooth coffee jelly cubes for a little caffeine kick</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Add-on</p>
+            <p class="menu-item-price">₱20</p>
+          </div>
+        </div>
       </div>
     </div>
-
     <div class="menu-item" data-category="toppings">
-      <img src="photos/Whipped Cream.jpg" alt="Add Whipped Cream" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/Whipped Cream.jpg" alt="Add Whipped Cream" class="menu-item-image" loading="lazy">
+      </div>
       <div class="menu-item-content">
+        <span class="menu-item-tag">Extra Topping</span>
         <h3 class="menu-item-name">Add Whipped Cream</h3>
-        <p class="menu-item-price">₱20</p>
+        <p class="menu-item-desc">A fluffy swirl of whipped cream on top</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Add-on</p>
+            <p class="menu-item-price">₱20</p>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Cookies -->
     <div class="menu-item" data-category="cookies">
-      <img src="photos/Choco Chips Cookies.jpg" alt="Choco Chips Cookies" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/Choco Chips Cookies.jpg" alt="Choco Chips Cookies" class="menu-item-image" loading="lazy">
+      </div>
       <div class="menu-item-content">
-        <h3 class="menu-item-name">Choco Chipes Cookies</h3>
-        <p class="menu-item-desc">The OG Cookie Classic chocolate chip flavor with Callebaut belgian chocolate and 57% Dark couverture chocolate</p>
-        <p class="menu-item-size">Per Piece</p>
-        <p class="menu-item-price">₱79</p>
+        <span class="menu-item-tag">Cookie</span>
+        <h3 class="menu-item-name">Choco Chips Cookies</h3>
+        <p class="menu-item-desc">The OG Cookie — classic chocolate chip flavor with Callebaut Belgian chocolate and 57% dark couverture chocolate</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Per Piece</p>
+            <p class="menu-item-price">₱79</p>
+          </div>
+        </div>
       </div>
     </div>
-
     <div class="menu-item" data-category="cookies">
-      <img src="photos/Matcha Cookies.jpg" alt="Matcha Cookies" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/Matcha Cookies.jpg" alt="Matcha Cookies" class="menu-item-image" loading="lazy">
+      </div>
       <div class="menu-item-content">
+        <span class="menu-item-tag">Cookie</span>
         <h3 class="menu-item-name">Matcha Cookies</h3>
-        <p class="menu-item-desc">Matcha Goodie Matcha flavored cookie filled with cream cheese and white chocolate chips</p>
-        <p class="menu-item-size">Per Piece</p>
-        <p class="menu-item-price">₱89</p>
+        <p class="menu-item-desc">Matcha Goodie — matcha flavored cookie filled with cream cheese and white chocolate chips</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Per Piece</p>
+            <p class="menu-item-price">₱89</p>
+          </div>
+        </div>
       </div>
     </div>
-
     <div class="menu-item" data-category="cookies">
-      <img src="photos/Smore Cookie.jpg" alt="Smore Cookie" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/Smore Cookie.jpg" alt="Smore Cookie" class="menu-item-image" loading="lazy">
+      </div>
       <div class="menu-item-content">
-        <h3 class="menu-item-name">Smore's Cookie</h3>
-        <p class="menu-item-desc">TSA SMORE'S Mallows with graham crackers and Callebaut belgian chocolate and 57% Dark couverture chocolate</p>
-        <p class="menu-item-size">Per Piece</p>
-        <p class="menu-item-price">₱89</p>
+        <span class="menu-item-tag">Cookie</span>
+        <h3 class="menu-item-name">S'mores Cookie</h3>
+        <p class="menu-item-desc">TSA S'mores — mallows with graham crackers, Callebaut Belgian chocolate and 57% dark couverture chocolate</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Per Piece</p>
+            <p class="menu-item-price">₱89</p>
+          </div>
+        </div>
       </div>
     </div>
-
     <div class="menu-item" data-category="cookies">
-      <img src="photos/Red Velvet Cookie.jpg" alt="Red Velvet Cookie" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/Red Velvet Cookie.jpg" alt="Red Velvet Cookie" class="menu-item-image" loading="lazy">
+      </div>
       <div class="menu-item-content">
+        <span class="menu-item-tag">Cookie</span>
         <h3 class="menu-item-name">Red Velvet Cookie</h3>
-        <p class="menu-item-desc">Red Velvet Vibe Red velvet cookie that is filled with cream cheese and white chocolate chip</p>
-        <p class="menu-item-size">Per Piece</p>
-        <p class="menu-item-price">₱89</p>
+        <p class="menu-item-desc">Red Velvet Vibe — red velvet cookie filled with cream cheese and white chocolate chips</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Per Piece</p>
+            <p class="menu-item-price">₱89</p>
+          </div>
+        </div>
       </div>
     </div>
-
     <div class="menu-item" data-category="cookies">
-      <img src="photos/Biscoff Cookie.jpg" alt="Biscoff Cookie" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/Biscoff Cookie.jpg" alt="Biscoff Cookie" class="menu-item-image" loading="lazy">
+      </div>
       <div class="menu-item-content">
+        <span class="menu-item-tag">Cookie</span>
         <h3 class="menu-item-name">Biscoff Cookie</h3>
-        <p class="menu-item-desc">Biscoff Lotus Biscoff spread and dark couverture chocolate</p>
-        <p class="menu-item-size">Per Piece</p>
-        <p class="menu-item-price">₱89</p>
+        <p class="menu-item-desc">Lotus Biscoff spread and dark couverture chocolate</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Per Piece</p>
+            <p class="menu-item-price">₱89</p>
+          </div>
+        </div>
       </div>
     </div>
-
     <div class="menu-item" data-category="cookies">
-      <img src="photos/Walnut Cookie.jpg" alt="Walnut Cookie" class="menu-item-image">
+      <div class="menu-item-media">
+        <img src="photos/Walnut Cookie.jpg" alt="Walnut Cookie" class="menu-item-image" loading="lazy">
+      </div>
       <div class="menu-item-content">
+        <span class="menu-item-tag">Cookie</span>
         <h3 class="menu-item-name">Walnut Cookie</h3>
-        <p class="menu-item-desc">Chocolate Chip Walnut a perfect combination of classic chocolate chip and walnut</p>
-        <p class="menu-item-size">Per Piece</p>
-        <p class="menu-item-price">₱89</p>
+        <p class="menu-item-desc">Chocolate Chip Walnut — a perfect combination of classic chocolate chip and walnut</p>
+        <div class="menu-item-footer">
+          <div class="menu-item-meta">
+            <p class="menu-item-size">Per Piece</p>
+            <p class="menu-item-price">₱89</p>
+          </div>
+        </div>
       </div>
     </div>
 
+    </div>
   </div>
+
+  <section class="cta-band reveal">
+    <img src="photos/MiniTaho.png" alt="" class="mascot">
+    <div>
+      <h2>Make it extra!</h2>
+      <p>Add sago, nata, coffee jelly or whipped cream to any taho for only ₱20 each.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="contact.htm" class="btn btn-ghost-light">Questions? Contact Us</a>
+    </div>
+  </section>
+
 </main>
 
-<div class="cart-sidebar" id="cart-sidebar">
+<!-- Cart Sidebar -->
+<aside class="cart-sidebar" id="cart-sidebar" aria-label="Shopping cart">
   <div class="cart-header">
     <h2>Your Cart</h2>
-    <button class="close-cart" id="close-cart">×</button>
+    <button class="close-cart" id="close-cart" aria-label="Close cart">&times;</button>
   </div>
   <div class="cart-items" id="cart-items">
     <!-- Cart items will be added here dynamically -->
@@ -260,33 +427,47 @@
     <p>Total: <span id="cart-total-price">₱0</span></p>
     <button class="checkout-btn" id="checkout-btn">Checkout</button>
   </div>
-</div>
+</aside>
 <div class="cart-overlay" id="cart-overlay"></div>
 
-<!-- Footer -->
 <footer class="site-footer">
   <div class="footer-content">
-    <div class="footer-logo">
+    <div class="footer-brand">
       <img src="photos/MiniTaho.png" alt="Taho Soy Avenue Mini Logo" />
+      <p>Silky, sweet and freshly made taho — hot or iced, the way you like it. Tahoho!</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/tahosoyavenue" aria-label="Facebook" target="_blank"><img src="photos/Facebook_logo.png" alt="Facebook" /></a>
+        <a href="https://www.instagram.com/tahosoyavenue/?hl=en" aria-label="Instagram" target="_blank"><img src="photos/Instagram_logo.png" alt="Instagram" /></a>
+        <a href="https://www.tiktok.com/@tahosoyavenue" aria-label="TikTok" target="_blank"><img src="photos/tiktok.png" alt="TikTok" /></a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="index.htm">Home</a>
-      <a href="menu.htm">Menu</a>
-      <a href="feature.htm">Feature</a>
-      <a href="contact.htm">Contact Us</a>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <div class="footer-links">
+        <a href="index.htm">Home</a>
+        <a href="menu.htm">Menu</a>
+        <a href="feature.htm">Feature</a>
+        <a href="contact.htm">Contact Us</a>
+        <a href="Sign-up.htm">Sign In / Sign Up</a>
+      </div>
     </div>
-    <div class="footer-social">
-      <a href="https://www.facebook.com/tahosoyavenue" aria-label="Facebook" target="_blank"><img src="photos/Facebook_logo.png" alt="Facebook" /></a>
-      <a href="https://www.instagram.com/tahosoyavenue/?hl=en" aria-label="Instagram" target="_blank"><img src="photos/Instagram_logo.png" alt="Instagram" /></a>
-      <!-- Add more social icons as needed -->
+    <div class="footer-col">
+      <h4>Visit Us</h4>
+      <p>Stall 8 St. Vincent Bldg., Maligaya Street, Sindalan, City of San Fernando, Pampanga</p>
+      <div class="footer-links"><a href="mailto:tahosoyavenue@gmail.com">tahosoyavenue@gmail.com</a></div>
+    </div>
+    <div class="footer-col">
+      <h4>Store Hours</h4>
+      <p>7:00 AM – 8:00 PM</p>
+      <p>Dine in · Pick up · Walk in</p>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2025 Taho Soy Avenue. All rights reserved.</p>
+    <p>&copy; <span class="year">2025</span> Taho Soy Avenue. All rights reserved. Made with love in Pampanga.</p>
   </div>
 </footer>
 
+<script src="js/main.js"></script>
 <script src="js/menu-script.js"></script>
 </body>
-
 </html>

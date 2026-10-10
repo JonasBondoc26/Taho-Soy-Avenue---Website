@@ -3,67 +3,113 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Taho Soy Avenue - Social Media Marketing</title>
-  <link rel="stylesheet" href="CSS/style-social-marketing.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>TAHO Soy Avenue - Social Media</title>
   <link rel="icon" type="image/png" href="photos/MiniTaho.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;600;700&family=Bebas+Neue&family=Capriola&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style-global.css" />
+  <link rel="stylesheet" href="CSS/style-social-marketing.css" />
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-<header>
-  <div>
-    <a href="index.htm"><img src="photos/TAHO.png" alt="Taho Soy Avenue Logo" class="header-logo"></a>
-  </div>
+<div class="announce-bar">
+  <p>Open <strong>7:00AM – 8:00PM</strong> &nbsp;•&nbsp; Dine in · Pick up · Walk in &nbsp;•&nbsp; Try the NEW <strong>Taho Biscoff!</strong></p>
+</div>
 
-  <nav class="header-nav">
+<header class="site-header">
+  <a href="index.htm" class="brand"><img src="photos/TAHO.png" alt="Taho Soy Avenue Logo" class="header-logo"></a>
+
+  <nav class="header-nav" id="site-nav">
     <a href="index.htm">Home</a>
     <a href="menu.htm">Menu</a>
     <a href="feature.htm">Feature</a>
     <a href="contact.htm">Contact Us</a>
+    <a href="Sign-up.htm" class="nav-signin">Sign In</a>
   </nav>
 
-  <div>
-    <a href="Sign-up.htm"><button class="header-signin-btn">Sign In</button></a>
+  <div class="header-actions">
+    <a href="Sign-up.htm" class="header-signin-btn">Sign In</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<main class="contact-main">
+<main>
+
+  <section class="page-hero">
+    <span class="bean bean-1"></span>
+    <span class="bean bean-2"></span>
+    <span class="bean bean-3"></span>
+    <span class="bean bean-4"></span>
+    <span class="eyebrow">#TahoSoyAvenue</span>
+    <h1>Follow the <span class="accent">Taho Fam</span></h1>
+    <p>Thanks for reaching out! Catch our latest posts, new flavor drops and behind-the-scenes fun on social media.</p>
+
+    <div class="handle-row">
+      <a href="https://www.facebook.com/tahosoyavenue" target="_blank" class="handle fb"><img src="photos/Facebook_logo.png" alt=""> tahosoyavenue</a>
+      <a href="https://www.instagram.com/tahosoyavenue/?hl=en" target="_blank" class="handle ig"><img src="photos/Instagram_logo.png" alt=""> @tahosoyavenue</a>
+      <a href="https://www.tiktok.com/@tahosoyavenue" target="_blank" class="handle tt"><img src="photos/tiktok.png" alt=""> @tahosoyavenue</a>
+    </div>
+
+    <div class="wave">
+      <svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0 35c160 30 320 40 480 25S800 5 960 10s320 40 480 35v25H0z"/></svg>
+    </div>
+  </section>
+
+  <section class="social-main">
     <div class="social-preview">
 
       <!-- Facebook Post -->
-      <div class="social-card">
-        <img src="photos/Facebook_logo.png" alt="Facebook" class="contact-icon">
-        <h2>Facebook Post</h2>
+      <div class="social-card card-fb reveal">
+        <div class="social-card-head">
+          <img src="photos/Facebook_logo.png" alt="Facebook" class="contact-icon">
+          <div>
+            <h2>Facebook Post</h2>
+            <span>Taho Soy Avenue</span>
+          </div>
+        </div>
+        <div class="fb-preview">
+          <img src="photos/Classic Arnibal.jpg" alt="Classic taho">
+        </div>
         <p>Experience the creamy goodness of our classic taho with a twist! Visit us today at Sindalan, San Fernando, Pampanga.</p>
         <a href="https://www.facebook.com/share/p/176uEoSY1e/" target="_blank" class="social-link">View Facebook Post</a>
       </div>
 
       <!-- Instagram Post -->
-      <div class="social-card">
-        <img src="photos/Instagram_logo.png" alt="Instagram" class="contact-icon">
-        <h2>Instagram Post</h2>
+      <div class="social-card card-ig reveal reveal-delay-1">
+        <div class="social-card-head">
+          <img src="photos/Instagram_logo.png" alt="Instagram" class="contact-icon">
+          <div>
+            <h2>Instagram Post</h2>
+            <span>@tahosoyavenue</span>
+          </div>
+        </div>
         <div class="embed-container">
-          <blockquote 
-            class="instagram-media" 
-            data-instgrm-permalink="https://www.instagram.com/p/CyR5EJDvuGg/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" 
-            data-instgrm-version="14" 
-            style="background:#FFF; border:0; border-radius:3px; margin:1px auto; max-width:540px; min-width:326px; padding:0; width:99%;">
+          <blockquote
+            class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/CyR5EJDvuGg/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+            data-instgrm-version="14"
+            style="background:#FFF; border:0; border-radius:3px; margin:1px auto; max-width:540px; min-width:280px; padding:0; width:99%;">
           </blockquote>
           <script async src="//www.instagram.com/embed.js"></script>
         </div>
       </div>
 
       <!-- TikTok Video -->
-      <div class="social-card">
-        <img src="photos/tiktok.png" alt="TikTok" class="contact-icon">
-        <h2>TikTok Video</h2>
+      <div class="social-card card-tt reveal reveal-delay-2">
+        <div class="social-card-head">
+          <img src="photos/tiktok.png" alt="TikTok" class="contact-icon">
+          <div>
+            <h2>TikTok Video</h2>
+            <span>@tahosoyavenue</span>
+          </div>
+        </div>
         <div class="embed-container">
-          <blockquote class="tiktok-embed" 
-            cite="https://www.tiktok.com/@tahosoyavenue/video/7190922436228140314" 
-            data-video-id="7190922436228140314" 
-            style="max-width: 605px;min-width: 325px;">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@tahosoyavenue/video/7190922436228140314"
+            data-video-id="7190922436228140314"
+            style="max-width: 605px;min-width: 280px;">
             <section>
               <a target="_blank" title="@tahosoyavenue" href="https://www.tiktok.com/@tahosoyavenue?refer=embed">@tahosoyavenue</a>
             </section>
@@ -74,29 +120,58 @@
 
     </div>
   </section>
+
+  <section class="cta-band reveal">
+    <img src="photos/MiniTaho.png" alt="" class="mascot">
+    <div>
+      <h2>Tag us in your taho moments!</h2>
+      <p>Post your cup with <strong>#TahoSoyAvenue</strong> and you might get featured on our page.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="menu.htm" class="btn btn-primary">Order Now</a>
+      <a href="index.htm" class="btn btn-ghost-light">Back to Home</a>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
   <div class="footer-content">
-    <div class="footer-logo">
+    <div class="footer-brand">
       <img src="photos/MiniTaho.png" alt="Taho Soy Avenue Mini Logo" />
+      <p>Silky, sweet and freshly made taho — hot or iced, the way you like it. Tahoho!</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/tahosoyavenue" aria-label="Facebook" target="_blank"><img src="photos/Facebook_logo.png" alt="Facebook" /></a>
+        <a href="https://www.instagram.com/tahosoyavenue/?hl=en" aria-label="Instagram" target="_blank"><img src="photos/Instagram_logo.png" alt="Instagram" /></a>
+        <a href="https://www.tiktok.com/@tahosoyavenue" aria-label="TikTok" target="_blank"><img src="photos/tiktok.png" alt="TikTok" /></a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="index.htm">Home</a>
-      <a href="menu.htm">Menu</a>
-      <a href="feature.htm">Feature</a>
-      <a href="contact.htm">Contact Us</a>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <div class="footer-links">
+        <a href="index.htm">Home</a>
+        <a href="menu.htm">Menu</a>
+        <a href="feature.htm">Feature</a>
+        <a href="contact.htm">Contact Us</a>
+        <a href="Sign-up.htm">Sign In / Sign Up</a>
+      </div>
     </div>
-    <div class="footer-social">
-      <a href="https://www.facebook.com/tahosoyavenue" target="_blank"><img src="photos/Facebook_logo.png" alt="Facebook" /></a>
-      <a href="https://www.instagram.com/tahosoyavenue/?hl=en" target="_blank"><img src="photos/Instagram_logo.png" alt="Instagram" /></a>
+    <div class="footer-col">
+      <h4>Visit Us</h4>
+      <p>Stall 8 St. Vincent Bldg., Maligaya Street, Sindalan, City of San Fernando, Pampanga</p>
+      <div class="footer-links"><a href="mailto:tahosoyavenue@gmail.com">tahosoyavenue@gmail.com</a></div>
+    </div>
+    <div class="footer-col">
+      <h4>Store Hours</h4>
+      <p>7:00 AM – 8:00 PM</p>
+      <p>Dine in · Pick up · Walk in</p>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2025 Taho Soy Avenue. All rights reserved.</p>
+    <p>&copy; <span class="year">2025</span> Taho Soy Avenue. All rights reserved. Made with love in Pampanga.</p>
   </div>
 </footer>
 
-
+<script src="js/main.js"></script>
 </body>
 </html>

@@ -4,40 +4,86 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Email Marketing - Taho Soy Avenue</title>
-  <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="photos/MiniTaho.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;600;700&family=Bebas+Neue&family=Capriola&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="CSS/style-email-marketing.css">
 </head>
 <body>
+
+  <!-- Fake inbox bar so it looks like an opened email -->
+  <div class="inbox-bar">
+    <a href="contact.htm" class="back-link">← Back to website</a>
+    <div class="inbox-meta">
+      <img src="photos/MiniTaho.png" alt="">
+      <div>
+        <strong>Taho Soy Avenue</strong> &lt;tahosoyavenue@gmail.com&gt;
+        <span>Subject: A sweet treat just for you — 20% off inside!</span>
+      </div>
+    </div>
+  </div>
 
   <div class="email-container">
     <div class="email-header">
       <img src="photos/TAHO.png" alt="Taho Soy Avenue Logo">
     </div>
 
+    <div class="email-hero">
+      <img src="photos/4taho.jpg" alt="Taho Soy Avenue drinks">
+    </div>
+
     <div class="email-body">
+      <span class="email-eyebrow">Thank you for reaching out!</span>
       <h1>Sweet, Fresh, and Made for You!</h1>
       <p>
-        Thank you for reaching out to <strong>Taho Soy Avenue</strong>!  
+        Thank you for reaching out to <strong>Taho Soy Avenue</strong>!
         Here's something special for our loyal customers.
       </p>
 
       <div class="email-offer">
-        <h2>🎉 Get 20% Off Your Next Order!</h2>
-        <p>Enjoy the creamy goodness of our signature Taho with your favorite toppings.  
+        <span class="offer-tag">Exclusive Offer</span>
+        <h2>Get <span>20% Off</span> Your Next Order!</h2>
+        <p>Enjoy the creamy goodness of our signature Taho with your favorite toppings.
         Visit our store today and treat yourself!</p>
         <a href="menu.htm" class="cta-button">Order Now</a>
       </div>
 
-      <p>
-        Follow us for more sweet deals and updates:
-        <br>
-        <a href="https://www.facebook.com/tahosoyavenue" target="_blank">Facebook</a> |
-        <a href="https://www.instagram.com/tahosoyavenue" target="_blank">Instagram</a>
-      </p>
+      <h3 class="email-section-title">Customer Favorites</h3>
+      <div class="email-products">
+        <a href="menu.htm" class="email-product">
+          <img src="photos/biscoff.jpg" alt="Biscoff Taho">
+          <strong>Biscoff Taho</strong>
+          <span>₱150</span>
+        </a>
+        <a href="menu.htm" class="email-product">
+          <img src="photos/Classic Arnibal.jpg" alt="Classic Arnibal">
+          <strong>Classic Arnibal</strong>
+          <span>₱95</span>
+        </a>
+        <a href="menu.htm" class="email-product">
+          <img src="photos/matcha.jpg" alt="Matcha Taho">
+          <strong>Matcha Taho</strong>
+          <span>₱105</span>
+        </a>
+      </div>
+
+      <div class="email-visit">
+        <p><strong>Visit us:</strong> Stall 8 St. Vincent Bldg., Maligaya Street, Sindalan, City of San Fernando, Pampanga</p>
+        <p><strong>Open:</strong> 7:00 AM – 8:00 PM · Dine in · Pick up · Walk in</p>
+      </div>
+
+      <p class="follow-text">Follow us for more sweet deals and updates:</p>
+      <div class="email-social">
+        <a href="https://www.facebook.com/tahosoyavenue" target="_blank"><img src="photos/Facebook_logo.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/tahosoyavenue" target="_blank"><img src="photos/Instagram_logo.png" alt="Instagram"></a>
+        <a href="https://www.tiktok.com/@tahosoyavenue" target="_blank"><img src="photos/tiktok.png" alt="TikTok"></a>
+      </div>
     </div>
 
     <div class="email-footer">
-      © 2025 Taho Soy Avenue | Maligaya Street, Sindalan, San Fernando, Pampanga
+      <p>© 2025 Taho Soy Avenue | Maligaya Street, Sindalan, San Fernando, Pampanga</p>
+      <p class="unsub">You're receiving this email because you contacted Taho Soy Avenue.</p>
     </div>
   </div>
 

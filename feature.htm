@@ -3,123 +3,219 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="CSS/style-feature.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <title>TAHO Soy Avenue- Feature</title>
+  <title>TAHO Soy Avenue - Feature</title>
   <link rel="icon" type="image/png" href="photos/MiniTaho.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;600;700&family=Bebas+Neue&family=Capriola&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style-global.css" />
+  <link rel="stylesheet" href="CSS/style-feature.css" />
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-  
-<header>
-  <div>
-    <a href=""><img src="photos/TAHO.png" alt="Taho Soy Avenue Logo" class="header-logo"></a>
-  </div>
 
-  <nav class="header-nav">
+<div class="announce-bar">
+  <p>Open <strong>7:00AM – 8:00PM</strong> &nbsp;•&nbsp; Dine in · Pick up · Walk in &nbsp;•&nbsp; Try the NEW <strong>Taho Biscoff!</strong></p>
+</div>
+
+<header class="site-header">
+  <a href="index.htm" class="brand"><img src="photos/TAHO.png" alt="Taho Soy Avenue Logo" class="header-logo"></a>
+
+  <nav class="header-nav" id="site-nav">
     <a href="index.htm">Home</a>
     <a href="menu.htm">Menu</a>
     <a href="feature.htm" class="active">Feature</a>
     <a href="contact.htm">Contact Us</a>
+    <a href="Sign-up.htm" class="nav-signin">Sign In</a>
   </nav>
 
-  <div>
-    <a href="Sign-up.htm"><button class="header-signin-btn">Sign In</button></a>
+  <div class="header-actions">
+    <a href="Sign-up.htm" class="header-signin-btn">Sign In</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
-    <h2>Sweet. Silky. Simply Taho.</h2>
 
-    <section class="f1">
-  <div class="feature-img-left">
-    <img src="photos/biscoff.jpg" alt="Taho Biscoff" />
-  </div>
-  <div class="feature-info-right-1">
-    <h2>New Taho Biscoff</h2>
-    <hr>
-    <p class="light">
-      Indulge in a next-level taho experience with our limited edition Taho Biscoff from Soy Avenue! This special treat combines the silky smoothness of classic taho with the rich caramel flavor of Biscoff cookie spread and real Biscoff crumble on top.
-    </p>
-    <a href="menu.htm"><button class="order-btn">Order now</button></a>
-  </div>
+<main>
+
+  <section class="page-hero">
+    <span class="bean bean-1"></span>
+    <span class="bean bean-2"></span>
+    <span class="bean bean-3"></span>
+    <span class="bean bean-4"></span>
+    <span class="eyebrow">Featured Flavors</span>
+    <h1>Sweet. Silky. <span class="accent">Simply Taho.</span></h1>
+    <p>Meet the cups that made us famous — from our timeless Classic Arnibal to the brand-new Taho Biscoff.</p>
+    <div class="wave">
+      <svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0 35c160 30 320 40 480 25S800 5 960 10s320 40 480 35v25H0z"/></svg>
+    </div>
   </section>
 
-  <section class="f2">
-  <div class="feature-info-left-2">
-    <h2>Classic Arnibal</h2>
-    <hr>
-    <p>
-      Experience the nostalgic comfort of our Classic Arnibal Taho a timeless Filipino delicacy reimagined for today’s soy lovers. This creamy, silky smooth taho is made with freshly prepared warm soy pudding, drizzled generously with sweet arnibal and topped with a generous layer of sago pearls for that satisfying chew.
-    </p>
-    <a href="menu.htm"><button class="order-btn">Order now</button></a>
+  <!-- Quick jump links -->
+  <nav class="flavor-jump reveal" aria-label="Featured flavors">
+    <a href="#biscoff"><img src="photos/biscoff.jpg" alt=""> Biscoff</a>
+    <a href="#arnibal"><img src="photos/Classic Arnibal.jpg" alt=""> Arnibal</a>
+    <a href="#matcha"><img src="photos/matcha.jpg" alt=""> Matcha</a>
+    <a href="#cookies-cream"><img src="photos/cookies and cream.jpg" alt=""> Cookies &amp; Cream</a>
+    <a href="#strawberry-pandan"><img src="photos/sb and pandan.jpg" alt=""> Strawberry &amp; Pandan</a>
+  </nav>
+
+  <div class="feature-list-wrap">
+
+    <section class="feature-row theme-1" id="biscoff">
+      <div class="feature-media reveal">
+        <img src="photos/biscoff.jpg" alt="Taho Biscoff" />
+        <span class="feature-num">01</span>
+      </div>
+      <div class="feature-info reveal reveal-delay-1">
+        <span class="feature-tag">Limited Edition</span>
+        <h2>New Taho Biscoff</h2>
+        <p>
+          Indulge in a next-level taho experience with our limited edition Taho Biscoff from Soy Avenue! This special treat combines the silky smoothness of classic taho with the rich caramel flavor of Biscoff cookie spread and real Biscoff crumble on top.
+        </p>
+        <div class="feature-bottom">
+          <span class="feature-price">₱150</span>
+          <a href="menu.htm" class="order-btn">Order Now →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-row theme-2 flip" id="arnibal">
+      <div class="feature-media reveal">
+        <img src="photos/Classic Arnibal.jpg" alt="Classic Hot Taho" />
+        <span class="feature-num">02</span>
+      </div>
+      <div class="feature-info reveal reveal-delay-1">
+        <span class="feature-tag">The Original</span>
+        <h2>Classic Arnibal</h2>
+        <p>
+          Experience the nostalgic comfort of our Classic Arnibal Taho — a timeless Filipino delicacy reimagined for today's soy lovers. This creamy, silky smooth taho is made with freshly prepared warm soy pudding, drizzled generously with sweet arnibal and topped with a generous layer of sago pearls for that satisfying chew.
+        </p>
+        <div class="feature-bottom">
+          <span class="feature-price">₱95</span>
+          <a href="menu.htm" class="order-btn">Order Now →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-row theme-3" id="matcha">
+      <div class="feature-media reveal">
+        <img src="photos/matcha.jpg" alt="Matcha Taho" />
+        <span class="feature-num">03</span>
+      </div>
+      <div class="feature-info reveal reveal-delay-1">
+        <span class="feature-tag">Refreshing</span>
+        <h2>Matcha Taho</h2>
+        <p>
+          Elevate your day with our Soy Refreshing Matcha — a smooth and creamy blend of premium Japanese matcha and our signature chilled soy milk, poured over ice for a naturally energizing treat.
+        </p>
+        <div class="feature-bottom">
+          <span class="feature-price">₱105</span>
+          <a href="menu.htm" class="order-btn">Order Now →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-row theme-4 flip" id="cookies-cream">
+      <div class="feature-media reveal">
+        <img src="photos/cookies and cream.jpg" alt="Cookies and Cream Iced Taho" />
+        <span class="feature-num">04</span>
+      </div>
+      <div class="feature-info reveal reveal-delay-1">
+        <span class="feature-tag">Fan Favorite</span>
+        <h2>Cookies &amp; Cream Iced Taho</h2>
+        <p>
+          Our Cookies and Cream Iced Taho combines the silky smoothness of chilled taho with the rich sweetness of crushed cookies, creamy milk, and chewy sago pearls. Topped with whipped cream and drizzled with chocolate syrup, this decadent treat delivers layers of flavor and texture in every sip.
+        </p>
+        <div class="feature-bottom">
+          <span class="feature-price">₱150</span>
+          <a href="menu.htm" class="order-btn">Order Now →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-row theme-5" id="strawberry-pandan">
+      <div class="feature-media reveal">
+        <img src="photos/sb and pandan.jpg" alt="Strawberry and Pandan Taho" />
+        <span class="feature-num">05</span>
+      </div>
+      <div class="feature-info reveal reveal-delay-1">
+        <span class="feature-tag">Hot or Cold</span>
+        <h2>Strawberry &amp; Pandan Flavored Taho</h2>
+        <p>
+          Taho Soy Avenue's flavored taho features smooth silken tofu, chewy sago pearls, and your choice of sweet strawberry or fragrant pandan syrup. Available hot or cold — perfect for any mood, any time!
+        </p>
+        <div class="feature-bottom">
+          <span class="feature-price">₱105</span>
+          <a href="menu.htm" class="order-btn">Order Now →</a>
+        </div>
+      </div>
+    </section>
+
   </div>
-  <div class="feature-img-right">
-    <img src="photos/Classic Arnibal.jpg" alt="Classic Hot Taho" />
-  </div>
+
+  <!-- Cookies -->
+  <section class="cookie-section">
+    <div class="cookie-inner">
+      <div class="cookie-text reveal">
+        <span class="eyebrow">Freshly Baked</span>
+        <h2>Don't forget the <span>cookies!</span></h2>
+        <p>Thick, chewy and loaded with Callebaut Belgian chocolate — the perfect partner for your taho.</p>
+        <ul class="cookie-chips">
+          <li>Choco Chips</li>
+          <li>Matcha</li>
+          <li>S'mores</li>
+          <li>Red Velvet</li>
+          <li>Biscoff</li>
+          <li>Walnut</li>
+        </ul>
+        <a href="menu.htm" class="btn btn-primary">Shop Cookies</a>
+      </div>
+      <div class="cookie-img reveal reveal-delay-1">
+        <img src="photos/cookies.jpg" alt="cookies" class="cookies">
+        <span class="cookie-price">from <strong>₱79</strong></span>
+      </div>
+    </div>
   </section>
 
-    <section class="f3">
-  <div class="feature-img-left">
-    <img src="photos/matcha.jpg" alt="Taho Biscoff" />
-  </div>
-  <div class="feature-info-right-3">
-    <h2>Matcha Taho</h2>
-    <hr>
-    <p>
-        Elevate your day with our Soy Refreshing Matcha a smooth and creamy blend of premium Japanese matcha and our signature chilled soy milk, poured over ice for a naturally energizing treat.    </p>
-    <a href="menu.htm"><button class="order-btn">Order now</button></a>
-  </div>
-  </section>
+</main>
 
-  <section class="f4">
-  <div class="feature-info-left-4">
-    <h2>Cookies & Cream Iced Taho</h2>
-    <hr>
-    <p>
-        Our Cookies and Cream Iced Taho combines the silky smoothness of chilled taho with the rich sweetness of crushed cookies, creamy milk, and chewy sago pearls. Topped with whipped cream and drizzled with chocolate syrup, this decadent treat delivers layers of flavor and texture in every sip.</p>
-    <a href="menu.htm"><button class="order-btn">Order now</button></a>
-  </div>
-  <div class="feature-img-right">
-    <img src="photos/cookies and cream.jpg" alt="Classic Hot Taho" />
-  </div>
-  </section>
-
-  <section class="f5">
-  <div class="feature-img-left">
-    <img src="photos/sb and pandan.jpg" alt="Taho Biscoff" />
-  </div>
-  <div class="feature-info-right-5">
-    <h2>Strawberry and Pandan Flavored Taho</h2>
-    <hr>
-    <p>
-        Taho Avenue’s flavored taho features smooth silken tofu, chewy sago pearls, and your choice of sweet strawberry or fragrant pandan syrup. Available hot or cold perfect for any mood, any time!</p>
-    <a href="menu.htm"><button class="order-btn">Order now</button></a>
-  </div>
-  </section>
-
-  <img src="photos/cookies.jpg" alt="cookies" class="cookies">
-
-  <footer class="site-footer">
+<footer class="site-footer">
   <div class="footer-content">
-    <div class="footer-logo">
+    <div class="footer-brand">
       <img src="photos/MiniTaho.png" alt="Taho Soy Avenue Mini Logo" />
+      <p>Silky, sweet and freshly made taho — hot or iced, the way you like it. Tahoho!</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/tahosoyavenue" aria-label="Facebook" target="_blank"><img src="photos/Facebook_logo.png" alt="Facebook" /></a>
+        <a href="https://www.instagram.com/tahosoyavenue/?hl=en" aria-label="Instagram" target="_blank"><img src="photos/Instagram_logo.png" alt="Instagram" /></a>
+        <a href="https://www.tiktok.com/@tahosoyavenue" aria-label="TikTok" target="_blank"><img src="photos/tiktok.png" alt="TikTok" /></a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="index.htm">Home</a>
-      <a href="menu.htm">Menu</a>
-      <a href="feature.htm">Feature</a>
-      <a href="contact.htm">Contact Us</a>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <div class="footer-links">
+        <a href="index.htm">Home</a>
+        <a href="menu.htm">Menu</a>
+        <a href="feature.htm">Feature</a>
+        <a href="contact.htm">Contact Us</a>
+        <a href="Sign-up.htm">Sign In / Sign Up</a>
+      </div>
     </div>
-    <div class="footer-social">
-      <a href="https://www.facebook.com/tahosoyavenue" aria-label="Facebook" target="_blank"><img src="photos/Facebook_logo.png" alt="Facebook" /></a>
-      <a href="https://www.instagram.com/tahosoyavenue/?hl=en" aria-label="Instagram" target="_blank"><img src="photos/Instagram_logo.png" alt="Instagram" /></a>
-      <!-- Add more social icons as needed -->
+    <div class="footer-col">
+      <h4>Visit Us</h4>
+      <p>Stall 8 St. Vincent Bldg., Maligaya Street, Sindalan, City of San Fernando, Pampanga</p>
+      <div class="footer-links"><a href="mailto:tahosoyavenue@gmail.com">tahosoyavenue@gmail.com</a></div>
+    </div>
+    <div class="footer-col">
+      <h4>Store Hours</h4>
+      <p>7:00 AM – 8:00 PM</p>
+      <p>Dine in · Pick up · Walk in</p>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2025 Taho Soy Avenue. All rights reserved.</p>
+    <p>&copy; <span class="year">2025</span> Taho Soy Avenue. All rights reserved. Made with love in Pampanga.</p>
   </div>
 </footer>
-</body>
 
+<script src="js/main.js"></script>
+</body>
 </html>
