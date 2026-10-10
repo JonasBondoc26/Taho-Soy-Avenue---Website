@@ -4,6 +4,8 @@ const signUpToggle = document.getElementById("signUpToggle");
 const signInToggle = document.getElementById("signInToggle");
 const goToSignUp = document.getElementById("goToSignUp");
 const successMessage = document.getElementById("successMessage");
+const authTitle = document.getElementById("authTitle");
+const authSub = document.getElementById("authSub");
 
 signUpToggle.addEventListener("click", () => {
   signUpForm.classList.add("active-form");
@@ -13,6 +15,9 @@ signUpToggle.addEventListener("click", () => {
   signUpToggle.classList.add("active");
   signInToggle.classList.remove("active");
   successMessage.classList.add("hidden-form");
+
+  authTitle.textContent = "Create your account";
+  authSub.textContent = "Join TAHO Soy Avenue — it only takes a minute!";
 });
 
 signInToggle.addEventListener("click", () => {
@@ -22,35 +27,46 @@ signInToggle.addEventListener("click", () => {
   signUpForm.classList.remove("active-form");
   signInToggle.classList.add("active");
   signUpToggle.classList.remove("active");
-  successMessage.classList.add("hidden-form");
+
+  authTitle.textContent = "Welcome back!";
+  authSub.textContent = "Sign in to your account. Not a member yet? Join TAHO Soy Avenue.";
 });
 
 goToSignUp.addEventListener("click", () => {
   signUpToggle.click();
 });
 
+// Show / hide password buttons
+document.querySelectorAll(".show-pass").forEach(button => {
+  button.addEventListener("click", () => {
+    const input = button.parentElement.querySelector("input");
+    const isHidden = input.type === "password";
+    input.type = isHidden ? "text" : "password";
+    button.textContent = isHidden ? "Hide" : "Show";
+  });
+});
+
 signUpForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const data = new FormData(signUpForm);
-  
-  // Show success message
-  successMessage.textContent = "Account Created Successfully!";
-  successMessage.classList.remove("hidden-form");
-  
-  // Reset form
+  const firstName = document.getElementById("firstName").value;
+
+  // Reset form first (its reset handler hides the message)
   signUpForm.reset();
-  
-  // Switch to sign-in form after 2 seconds
+
+  // Switch to sign-in form, then show success message
+  signInToggle.click();
+  successMessage.textContent = `Account created successfully! Welcome to the Taho fam, ${firstName}. You can now sign in.`;
+  successMessage.classList.remove("hidden-form");
+
   setTimeout(() => {
     successMessage.classList.add("hidden-form");
-    signInToggle.click();
-  }, 2000);
+  }, 4000);
 });
 
 signInForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const username = document.getElementById("signInUsername").value;
-  alert(`Welcome back, ${username}!`);
+  showToast(`Welcome back, ${username}!`);
   signInForm.reset();
 });
 

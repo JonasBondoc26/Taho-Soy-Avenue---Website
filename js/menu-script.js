@@ -1,6 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
   const filterButtons = document.querySelectorAll('.category-btn');
   const menuItems = document.querySelectorAll('.menu-item');
+  const menuCount = document.getElementById('menu-count');
+
+  // Shows "Showing X items" above the grid
+  function updateMenuCount() {
+    const visible = Array.from(menuItems).filter(item => item.style.display !== 'none').length;
+    menuCount.textContent = `Showing ${visible} item${visible === 1 ? '' : 's'}`;
+  }
 
   filterButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -11,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
       button.classList.add('active');
 
       const category = button.getAttribute('data-category');
-      const subCategory = button.getAttribute('data-subcategory'); // 👈 new
+      const subCategory = button.getAttribute('data-subcategory');
 
       // Show/hide menu items based on category + sub-category
       menuItems.forEach(item => {
@@ -22,13 +29,21 @@ document.addEventListener('DOMContentLoaded', function () {
           category === 'all' ||
           (itemCategory === category && (!subCategory || itemSubCategory === subCategory))
         ) {
-          item.style.display = 'block';
+          item.style.display = '';
+          // Replay the pop-in animation
+          item.classList.remove('pop-in');
+          void item.offsetWidth;
+          item.classList.add('pop-in');
         } else {
           item.style.display = 'none';
         }
       });
+
+      updateMenuCount();
     });
   });
+
+  updateMenuCount();
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -41,37 +56,46 @@ document.addEventListener('DOMContentLoaded', function() {
   const cartTotalPrice = document.getElementById('cart-total-price');
   const cartCount = document.querySelector('.cart-count');
   const checkoutBtn = document.getElementById('checkout-btn');
-  
+
   // Initialize cart from localStorage
   let cart = JSON.parse(localStorage.getItem('tahoCart')) || [];
-  
+
   // Update cart display
   function updateCartDisplay() {
     // Update cart count
     const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
     cartCount.textContent = totalItems;
-    
+    cartCount.classList.toggle('has-items', totalItems > 0);
+
     // Clear cart items container
     cartItemsContainer.innerHTML = '';
-    
+
+    // Save cart to localStorage
+    localStorage.setItem('tahoCart', JSON.stringify(cart));
+
     // If cart is empty
     if (cart.length === 0) {
-      cartItemsContainer.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
+      cartItemsContainer.innerHTML = `
+        <div class="empty-cart">
+          <img src="photos/MiniTaho.png" alt="">
+          <p>Your cart is empty</p>
+          <small>Add some taho goodness from the menu!</small>
+        </div>`;
       cartTotalPrice.textContent = '₱0';
       return;
     }
-    
+
     // Add items to cart
     let totalPrice = 0;
-    
+
     cart.forEach((item, index) => {
       const cartItemElement = document.createElement('div');
       cartItemElement.classList.add('cart-item');
-      
+
       // Calculate item total price
       const itemTotal = item.price * item.quantity;
       totalPrice += itemTotal;
-      
+
       cartItemElement.innerHTML = `
         <img src="${item.image}" alt="${item.name}" class="cart-item-image">
         <div class="cart-item-details">
@@ -83,66 +107,66 @@ document.addEventListener('DOMContentLoaded', function() {
             <button class="quantity-btn increase" data-index="${index}">+</button>
           </div>
         </div>
-        <button class="remove-item" data-index="${index}">×</button>
+        <button class="remove-item" data-index="${index}" aria-label="Remove ${item.name}">×</button>
       `;
-      
+
       cartItemsContainer.appendChild(cartItemElement);
     });
-    
+
     // Update total price
     cartTotalPrice.textContent = `₱${totalPrice}`;
-    
+
     // Add event listeners to quantity buttons
     document.querySelectorAll('.decrease').forEach(button => {
       button.addEventListener('click', decreaseQuantity);
     });
-    
+
     document.querySelectorAll('.increase').forEach(button => {
       button.addEventListener('click', increaseQuantity);
     });
-    
+
     document.querySelectorAll('.quantity-input').forEach(input => {
       input.addEventListener('change', changeQuantity);
     });
-    
+
     document.querySelectorAll('.remove-item').forEach(button => {
       button.addEventListener('click', removeItem);
     });
-    
-    // Save cart to localStorage
-    localStorage.setItem('tahoCart', JSON.stringify(cart));
   }
-  
-  // Toggle cart sidebar
-  cartToggle.addEventListener('click', function() {
+
+  function openCart() {
     cartSidebar.classList.add('open');
     cartOverlay.classList.add('open');
-  });
-  
-  closeCart.addEventListener('click', function() {
+  }
+
+  function closeCartPanel() {
     cartSidebar.classList.remove('open');
     cartOverlay.classList.remove('open');
+  }
+
+  // Toggle cart sidebar
+  cartToggle.addEventListener('click', openCart);
+  closeCart.addEventListener('click', closeCartPanel);
+  cartOverlay.addEventListener('click', closeCartPanel);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeCartPanel();
   });
-  
-  cartOverlay.addEventListener('click', function() {
-    cartSidebar.classList.remove('open');
-    cartOverlay.classList.remove('open');
-  });
-  
+
   // Add to cart functionality
   document.querySelectorAll('.menu-item').forEach(item => {
     const addButton = document.createElement('button');
     addButton.classList.add('add-to-cart-btn');
-    addButton.textContent = 'Add to Cart';
-    
-    const itemContent = item.querySelector('.menu-item-content');
-    itemContent.appendChild(addButton);
-    
+    addButton.textContent = '+ Add';
+
+    const itemFooter = item.querySelector('.menu-item-footer');
+    itemFooter.appendChild(addButton);
+
     addButton.addEventListener('click', function() {
       const name = item.querySelector('.menu-item-name').textContent;
       const priceText = item.querySelector('.menu-item-price').textContent;
       const image = item.querySelector('.menu-item-image').src;
-      
+
       // Extract price (handle multiple price options)
       let price;
       if (priceText.includes('|')) {
@@ -151,12 +175,12 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         price = parseInt(priceText.replace('₱', '').trim());
       }
-      
+
       // Check if item already exists in cart
-      const existingItemIndex = cart.findIndex(cartItem => 
+      const existingItemIndex = cart.findIndex(cartItem =>
         cartItem.name === name && cartItem.price === price
       );
-      
+
       if (existingItemIndex !== -1) {
         // Increase quantity if item exists
         cart[existingItemIndex].quantity += 1;
@@ -169,21 +193,25 @@ document.addEventListener('DOMContentLoaded', function() {
           quantity: 1
         });
       }
-      
+
       // Update cart display
       updateCartDisplay();
-      
+
       // Visual feedback
+      showToast(`${name} added to your cart!`);
       addButton.textContent = 'Added!';
       addButton.classList.add('added-to-cart');
-      
+      cartToggle.classList.remove('bump');
+      void cartToggle.offsetWidth;
+      cartToggle.classList.add('bump');
+
       setTimeout(() => {
-        addButton.textContent = 'Add to Cart';
+        addButton.textContent = '+ Add';
         addButton.classList.remove('added-to-cart');
       }, 1000);
     });
   });
-  
+
   // Cart item quantity functions
   function decreaseQuantity(e) {
     const index = parseInt(e.target.dataset.index);
@@ -192,17 +220,17 @@ document.addEventListener('DOMContentLoaded', function() {
       updateCartDisplay();
     }
   }
-  
+
   function increaseQuantity(e) {
     const index = parseInt(e.target.dataset.index);
     cart[index].quantity += 1;
     updateCartDisplay();
   }
-  
+
   function changeQuantity(e) {
     const index = parseInt(e.target.dataset.index);
     const newQuantity = parseInt(e.target.value);
-    
+
     if (newQuantity > 0) {
       cart[index].quantity = newQuantity;
       updateCartDisplay();
@@ -210,31 +238,30 @@ document.addEventListener('DOMContentLoaded', function() {
       e.target.value = cart[index].quantity;
     }
   }
-  
+
   function removeItem(e) {
     const index = parseInt(e.target.dataset.index);
     cart.splice(index, 1);
     updateCartDisplay();
   }
-  
+
   // Checkout functionality
   checkoutBtn.addEventListener('click', function() {
     if (cart.length === 0) {
-      alert('Your cart is empty!');
+      showToast('Your cart is empty!');
       return;
     }
-    
-    alert('Thank you for your order!');
-    
+
+    showToast('Thank you for your order! Tahoho!');
+
     // Clear cart
     cart = [];
     updateCartDisplay();
-    
+
     // Close cart sidebar
-    cartSidebar.classList.remove('open');
-    cartOverlay.classList.remove('open');
+    closeCartPanel();
   });
-  
+
   // Initialize cart display
   updateCartDisplay();
 });
